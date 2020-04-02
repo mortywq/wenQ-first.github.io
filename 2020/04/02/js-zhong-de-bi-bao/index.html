@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="maggin垂直方向造成外边距塌陷, html">
-    <meta name="description" content="造成外边距塌陷的原因
-根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi">
+    <meta name="keywords" content="关于js的闭包, html">
+    <meta name="description" content="关于js的闭包 | Smile">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>maggin垂直方向造成外边距塌陷 | Smile</title>
+    <title>关于js的闭包 | Smile</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -215,12 +214,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">maggin垂直方向造成外边距塌陷</h1>
+                    <h1 class="description center-align post-title">关于js的闭包</h1>
                 </div>
             </div>
         </div>
@@ -230,10 +229,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -242,12 +336,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/html/">
-                                <span class="chip bg-color">html</span>
-                            </a>
-                        
-                            <a href="/tags/css/">
-                                <span class="chip bg-color">css</span>
+                            <a href="/tags/js/">
+                                <span class="chip bg-color">js</span>
                             </a>
                         
                     </div>
@@ -258,8 +348,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/html/" class="post-category">
-                                html
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -280,14 +370,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    555
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 				
@@ -303,85 +393,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="造成外边距塌陷的原因"><a href="#造成外边距塌陷的原因" class="headerlink" title="造成外边距塌陷的原因"></a>造成外边距塌陷的原因</h1><hr>
-<p><strong>根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者padding，就会与父元素的上边距重叠。左右marggin不会发生外边距合并的现象</strong></p>
-<hr>
-<h1 id="外边距塌陷的代码"><a href="#外边距塌陷的代码" class="headerlink" title="外边距塌陷的代码:"></a>外边距塌陷的代码:</h1><pre><code>  &lt;div class=&quot;father&quot;&gt;
-    &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- 样式部分 --&gt;
-.father {
-            width: 500px;
-            height: 200px;
-            margin-top: 10px;
-            background-color: green;
-        }
-
-.children {
-            margin-top: 20px;
-            background-color: red;
-        }</code></pre><p><strong>上述代码运行以后childern的外边距按理说应该是30px，但是实际上却是20px,这就是典型垂直方向上的外边距合并,那么要怎么解决这种状况呢</strong></p>
-<h2 id="我知道的解决方法有这五种"><a href="#我知道的解决方法有这五种" class="headerlink" title="我知道的解决方法有这五种"></a>我知道的解决方法有这五种</h2><ol>
-<li><strong>给父元素father 加上overflow：hidden属性</strong><pre><code>.father {
-         width: 500px;
-         height: 200px;
-         margin-top: 10px;
-         overflow: hidden; //添加这个属性使父节点形成BFC模式
-         background-color: green;
-     }
-.children {
-         margin-top: 20px;
-         background-color: red;
-     }</code></pre></li>
-<li><strong>给父元素father 加上垂直方向的padding：value</strong><pre><code>.father {
-         width: 500px;
-         height: 200px;
-         margin-top: 10px;
-         padding-top: 5px; //添加这个属性使父节点形成BFC模式
-         background-color: green;
-     }
-.children {
-         margin-top: 20px;
-         background-color: red;
-     }</code></pre></li>
-<li><strong>给父元素father 加上垂直方向的border</strong><pre><code>.father {
-         width: 500px;
-         height: 200px;
-         margin-top: 10px;
-         border: 1px solid transparent; //添加这个属性使父节点形成BFC模式
-         background-color: green;
-     }
-.children {
-         margin-top: 20px;
-         background-color: red;
-     }</code></pre></li>
-<li><strong>给父元素father 加上float</strong><pre><code>.father {
-         width: 500px;
-         height: 200px;
-         margin-top: 10px;
-         float:left //这里只要不为none即可,添加这个属性使父节点形成BFC模式
-         background-color: green;
-     }
-.children {
-         margin-top: 20px;
-         background-color: red;
-     }</code></pre></li>
-<li><strong>给父元素father 加上position:absolute</strong><pre><code>.father {
-         width: 500px;
-         height: 200px;
-         margin-top: 10px;
-         position:absolute //添加这个属性使父节点形成BFC模式
-         background-color: green;
-     }
-.children {
-         margin-top: 20px;
-         background-color: red;
-     }</code></pre><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote>
-<p><strong>外边距塌陷使很容易发生的，刚开始我遇到的时候也是非常的抓狂的，margin发生了不再预料之中的状况，一定要稳住心态，踩过的坑越多，成长的才会更快!一起加油，少年！</strong></p>
-</blockquote>
-</li>
-</ol>
-
+                
             </div>
             <hr/>
 
@@ -406,7 +418,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/">https://wenq-first.github.io/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/</a>
+                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-bi-bao/">https://wenq-first.github.io/2020/04/02/js-zhong-de-bi-bao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -444,12 +456,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/html/">
-                                    <span class="chip bg-color">html</span>
-                                </a>
-                            
-                                <a href="/tags/css/">
-                                    <span class="chip bg-color">css</span>
+                                <a href="/tags/js/">
+                                    <span class="chip bg-color">js</span>
                                 </a>
                             
                         </div>
@@ -517,20 +525,19 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/">
+                <a href="/2020/04/02/js-zhong-de-bi-bao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="maggin垂直方向造成外边距塌陷">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="关于js的闭包">
                         
-                        <span class="card-title">maggin垂直方向造成外边距塌陷</span>
+                        <span class="card-title">关于js的闭包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            造成外边距塌陷的原因
-根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -541,8 +548,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/html/" class="post-category">
-                                    html
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -553,12 +560,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/html/">
-                        <span class="chip bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/css/">
-                        <span class="chip bg-color">css</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -569,16 +572,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/">
+                <a href="/2020/04/02/wai-bian-ju-ta-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="maggin垂直方向造成外边距塌陷">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="外边距塌陷">
                         
-                        <span class="card-title">maggin垂直方向造成外边距塌陷</span>
+                        <span class="card-title">外边距塌陷</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -596,15 +599,14 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/html/" class="post-category">
-                                    html
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -651,6 +653,100 @@
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
