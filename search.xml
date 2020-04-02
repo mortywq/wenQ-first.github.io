@@ -4,26 +4,27 @@
   
     
     <entry>
-      <title>外边距塌陷</title>
-      <link href="/uncategorized/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/"/>
-      <url>/uncategorized/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/</url>
+      <title>maggin垂直方向造成外边距塌陷</title>
+      <link href="/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/"/>
+      <url>/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/uncategorized/hello-world/"/>
-      <url>/uncategorized/hello-world/</url>
-      
-        <content type="html"><![CDATA[<h1 id="哈还"><a href="#哈还" class="headerlink" title="哈还"></a>哈还</h1><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="造成外边距塌陷的原因"><a href="#造成外边距塌陷的原因" class="headerlink" title="造成外边距塌陷的原因"></a>造成外边距塌陷的原因</h1><hr><p><strong>根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者padding，就会与父元素的上边距重叠。左右marggin不会发生外边距合并的现象</strong></p><hr><h1 id="外边距塌陷的代码"><a href="#外边距塌陷的代码" class="headerlink" title="外边距塌陷的代码:"></a>外边距塌陷的代码:</h1><pre><code>  &lt;div class=&quot;father&quot;&gt;    &lt;div class=&quot;children&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;!-- 样式部分 --&gt;.father {            width: 500px;            height: 200px;            margin-top: 10px;            background-color: green;        }.children {            margin-top: 20px;            background-color: red;        }</code></pre><p><strong>上述代码运行以后childern的外边距按理说应该是30px，但是实际上却是20px,这就是典型垂直方向上的外边距合并,那么要怎么解决这种状况呢</strong></p><h2 id="我知道的解决方法有这五种"><a href="#我知道的解决方法有这五种" class="headerlink" title="我知道的解决方法有这五种"></a>我知道的解决方法有这五种</h2><ol><li><strong>给父元素father 加上overflow：hidden属性</strong><pre><code>.father {         width: 500px;         height: 200px;         margin-top: 10px;         overflow: hidden; //添加这个属性使父节点形成BFC模式         background-color: green;     }.children {         margin-top: 20px;         background-color: red;     }</code></pre></li><li><strong>给父元素father 加上垂直方向的padding：value</strong><pre><code>.father {         width: 500px;         height: 200px;         margin-top: 10px;         padding-top: 5px; //添加这个属性使父节点形成BFC模式         background-color: green;     }.children {         margin-top: 20px;         background-color: red;     }</code></pre></li><li><strong>给父元素father 加上垂直方向的border</strong><pre><code>.father {         width: 500px;         height: 200px;         margin-top: 10px;         border: 1px solid transparent; //添加这个属性使父节点形成BFC模式         background-color: green;     }.children {         margin-top: 20px;         background-color: red;     }</code></pre></li><li><strong>给父元素father 加上float</strong><pre><code>.father {         width: 500px;         height: 200px;         margin-top: 10px;         float:left //这里只要不为none即可,添加这个属性使父节点形成BFC模式         background-color: green;     }.children {         margin-top: 20px;         background-color: red;     }</code></pre></li><li><strong>给父元素father 加上position:absolute</strong><pre><code>.father {         width: 500px;         height: 200px;         margin-top: 10px;         position:absolute //添加这个属性使父节点形成BFC模式         background-color: green;     }.children {         margin-top: 20px;         background-color: red;     }</code></pre><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote><p><strong>外边距塌陷使很容易发生的，刚开始我遇到的时候也是非常的抓狂的，margin发生了不再预料之中的状况，一定要稳住心态，踩过的坑越多，成长的才会更快!一起加油，少年！</strong></p></blockquote></li></ol>]]></content>
       
       
+      <categories>
+          
+          <category> html </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> html </tag>
+            
+            <tag> css </tag>
+            
+        </tags>
       
     </entry>
     

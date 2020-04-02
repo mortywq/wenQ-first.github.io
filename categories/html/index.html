@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, html">
-    <meta name="description" content="标签 | Smile">
+    <meta name="keywords" content="分类: html, html">
+    <meta name="description" content="分类: html | Smile">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | Smile</title>
+    <title>分类: html | Smile</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,31 +260,24 @@
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/html/" title="html: 1">
+                
+                <a href="/categories/html/" title="html: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="html" style="background-color: #F9EBEA;">html
+                             chip-active "
+                            style="background-color: #F9EBEA;">html
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/css/" title="css: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="css" style="background-color: #F5EEF8;">css
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
@@ -292,31 +285,66 @@
 </div>
 
     
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/html/%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="maggin垂直方向造成外边距塌陷">
+                            
+                            <span class="card-title">maggin垂直方向造成外边距塌陷</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                造成外边距塌陷的原因
+根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/html/" class="post-category">
+                                    html
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"html","weight":1,"link":"https://wenq-first.github.io/tags/html/"},{"text":"css","weight":1,"link":"https://wenq-first.github.io/tags/css/"}], {
-        autoResize: true
-    });
-</script>
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/html/">
+                            <span class="chip bg-color">html</span>
+                        </a>
+                        
+                        <a href="/tags/css/">
+                            <span class="chip bg-color">css</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
