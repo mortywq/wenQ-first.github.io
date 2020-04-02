@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于js的闭包, html">
-    <meta name="description" content="关于js的闭包 | Smile">
+    <meta name="keywords" content="关于js的预解析, html">
+    <meta name="description" content="
+js为什么被会预解析
+js代码通过浏览器的 js 解释器（js 引擎） 来执行的
+js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
+
+
+预解析的步骤
+首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,8 +20,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于js的闭包 | Smile</title>
-    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+    <title>关于js的预解析 | Smile</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -35,6 +42,8 @@
         <div id="navContainer" class="nav-wrapper head-container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Smile</span>
                 </a>
@@ -120,6 +129,8 @@
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Smile</div>
         <div class="logo-desc">
@@ -214,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于js的闭包</h1>
+                    <h1 class="description center-align post-title">关于js的预解析</h1>
                 </div>
             </div>
         </div>
@@ -229,105 +240,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -370,14 +286,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    787
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -393,7 +309,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <ul>
+<li><h2 id="js为什么被会预解析"><a href="#js为什么被会预解析" class="headerlink" title="js为什么被会预解析"></a>js为什么被会预解析</h2><ol>
+<li><strong>js代码通过浏览器的 js 解释器（js 引擎） 来执行的</strong></li>
+<li><strong>js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行</strong></li>
+</ol>
+</li>
+<li><h2 id="预解析的步骤"><a href="#预解析的步骤" class="headerlink" title="预解析的步骤"></a>预解析的步骤</h2><ol>
+<li><strong>首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是一个解释执行的脚本语言，从上到下执行。如果函数调用出现在函数定义之前，就会导致失败。）</strong></li>
+<li><strong>变量提升的是声明并不赋值， 函数 只提升声明 并不调用</strong></li>
+<li><strong>变量提升也好函数提升也好都是在自己所处的当前作用域下进行提升</strong></li>
+</ol>
+</li>
+<li><h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例:"></a>代码示例:</h2><ol>
+<li><strong>测试1：</strong><pre><code>//测试1
+function demo1(){
+console.log(a); 
+var a = 5;
+}
+var a = 10;
+demo1(); //undefined</code></pre></li>
+</ol>
+<strong>最后打印的结果是undefined，这就是js的预解析机制，它并不会去找全局变量a = 10；而是在demo1函数中在当前的函数作用域中提升了变量，也就是预解析机制;</strong><pre><code>//和测试1等价
+var a;
+function demo1(){
+  var a;
+  console.log(a); 
+  a = 5;
+}
+ a = 10;
+ demo1(); //undefined</code></pre><ol start="2">
+<li><strong>测试2：</strong><pre><code>b(); //此时b为变量 
+//测试2
+var b = function demo2(){
+console.log(&#39;demo2&#39;);
+}</code></pre></li>
+</ol>
+<strong>最后打印的结果是b is not function，这里因为此处的b是函数表达式，被当成变量提升而不是函数声明提升，所以b（）调用这个方法在完成赋值之前是被js解析成一个变量，变量怎么可以被当成方法来调用呢？如果b（）在完成赋值之后那么就会打印demo2如下图代码</strong><pre><code>  //测试2
+var b = function demo2(){
+  console.log(&#39;demo2&#39;);
+}
+  b(); //此时b为函数</code></pre><ol start="3">
+<li><strong>测试3：</strong><pre><code>b(); //此时b为函数
+//测试3
+var b = 5;
+function b(){
+console.log(&#39;demo3&#39;);
+}</code></pre></li>
+</ol>
+<strong>最后打印的结果是demo3，这里调用b的时候js是把b解析成了下面的函数b，那么疑惑来了函数名和变量名相同，怎么才能确定b到底是变量还是方法呢？我的理解是看b在哪个时候调用，如果b在被赋值之前调用同名的变量和方法那么调用的就是方法，如果是在被赋值之后调用那就是取决你为b赋的值，在这里就是b = 5，代码如下</strong><pre><code>  //测试3
+  var b = 5;
+function b(){
+  console.log(&#39;demo3&#39;);
+}
+  b(); //b is not a function 
+  console.log(b); // 当然真实运行的时候不能有上面那条代码不然直接报错卡死在上一条代码也就/不会执行到这里，这里的b是当作了变量所以是可以正常打印的，结果是5</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><blockquote>
+<p><strong>js的预解析机制，个人理解就是搞清除被预解析的变量和函数分别是在哪个作用域下，这个一定得分清，还有就是变量和函数同名  调用的到底是什么，这个得看代码的执行时机了。以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+</blockquote>
+</li>
+</ul>
+
             </div>
             <hr/>
 
@@ -418,7 +393,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-bi-bao/">https://wenq-first.github.io/2020/04/02/js-zhong-de-bi-bao/</a>
+                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/">https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,19 +500,26 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/04/02/js-zhong-de-bi-bao/">
+                <a href="/2020/04/02/js-zhong-de-yu-jie-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="关于js的闭包">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="关于js的预解析">
                         
-                        <span class="card-title">关于js的闭包</span>
+                        <span class="card-title">关于js的预解析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
+js为什么被会预解析
+js代码通过浏览器的 js 解释器（js 引擎） 来执行的
+js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
+
+
+预解析的步骤
+首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是
                         
                     </div>
                     <div class="publish-info">
@@ -653,100 +635,6 @@
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 
