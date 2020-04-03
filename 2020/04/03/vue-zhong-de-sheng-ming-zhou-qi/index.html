@@ -4,15 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于js的预解析, html">
-    <meta name="description" content="
-js代码为什么会被预解析
-js代码通过浏览器的 js 解释器（js 引擎） 来执行的
-js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
-
-
-预解析的步骤
-首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为J">
+    <meta name="keywords" content="vue的生命周期, html">
+    <meta name="description" content="首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图:
+多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +14,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于js的预解析 | Smile</title>
+    <title>vue的生命周期 | Smile</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +219,12 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于js的预解析</h1>
+                    <h1 class="description center-align post-title">vue的生命周期</h1>
                 </div>
             </div>
         </div>
@@ -252,8 +246,8 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -277,7 +271,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-02
+                    2020-04-03
                 </div>
                 
 
@@ -286,7 +280,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    789
+                    838
                 </div>
                 
 
@@ -309,65 +303,54 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><h2 id="js代码为什么会被预解析"><a href="#js代码为什么会被预解析" class="headerlink" title="js代码为什么会被预解析"></a>js代码为什么会被预解析</h2><ol>
-<li><strong>js代码通过浏览器的 js 解释器（js 引擎） 来执行的</strong></li>
-<li><strong>js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行</strong></li>
-</ol>
-</li>
-<li><h2 id="预解析的步骤"><a href="#预解析的步骤" class="headerlink" title="预解析的步骤"></a>预解析的步骤</h2><ol>
-<li><strong>首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是一个解释执行的脚本语言，从上到下执行。如果函数调用出现在函数定义之前，就会导致失败。）</strong></li>
-<li><strong>变量提升的是声明并不赋值， 函数 只提升声明 并不调用</strong></li>
-<li><strong>变量提升也好函数提升也好都是在自己所处的当前作用域下进行提升</strong></li>
-</ol>
-</li>
-<li><h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例:"></a>代码示例:</h2><ol>
-<li><strong>测试1：</strong><pre><code>//测试1
-function demo1(){
-console.log(a); 
-var a = 5;
-}
-var a = 10;
-demo1(); //undefined</code></pre></li>
-</ol>
-<strong>最后打印的结果是undefined，这就是js的预解析机制，它并不会去找全局变量a = 10；而是在demo1函数中在当前的函数作用域中提升了变量，也就是预解析机制;</strong><pre><code>//和测试1等价
-var a;
-function demo1(){
-  var a;
-  console.log(a); 
-  a = 5;
-}
- a = 10;
- demo1(); //undefined</code></pre><ol start="2">
-<li><strong>测试2：</strong><pre><code>b(); //此时b为变量 
-//测试2
-var b = function demo2(){
-console.log(&#39;demo2&#39;);
-}</code></pre></li>
-</ol>
-<strong>最后打印的结果是b is not function，这里因为此处的b是函数表达式，被当成变量提升而不是函数声明提升，所以b（）调用这个方法在完成赋值之前是被js解析成一个变量，变量怎么可以被当成方法来调用呢？如果b（）在完成赋值之后那么就会打印demo2如下图代码</strong><pre><code>  //测试2
-var b = function demo2(){
-  console.log(&#39;demo2&#39;);
-}
-  b(); //此时b为函数</code></pre><ol start="3">
-<li><strong>测试3：</strong><pre><code>b(); //此时b为函数
-//测试3
-var b = 5;
-function b(){
-console.log(&#39;demo3&#39;);
-}</code></pre></li>
-</ol>
-<strong>最后打印的结果是demo3，这里调用b的时候js是把b解析成了下面的函数b，那么疑惑来了函数名和变量名相同，怎么才能确定b到底是变量还是方法呢？我的理解是看b在哪个时候调用，如果b在被赋值之前调用同名的变量和方法那么调用的就是方法，如果是在被赋值之后调用那就是取决你为b赋的值，在这里就是b = 5，代码如下</strong><pre><code>  //测试3
-  var b = 5;
-function b(){
-  console.log(&#39;demo3&#39;);
-}
-  b(); //b is not a function 
-  console.log(b); // 当然真实运行的时候不能有上面那条代码不然直接报错卡死在上一条代码也就/不会执行到这里，这里的b是当作了变量所以是可以正常打印的，结果是5</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><blockquote>
-<p><strong>js的预解析机制，个人理解就是搞清除被预解析的变量和函数分别是在哪个作用域下，这个一定得分清，还有就是变量和函数同名  调用的到底是什么，这个得看代码的执行时机了。以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+                <h3 id="首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程-这个过程就是vue的生命周期。直接上一张官网的图"><a href="#首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程-这个过程就是vue的生命周期。直接上一张官网的图" class="headerlink" title="首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图:"></a><strong>首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图:</strong></h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585920841526&di=bf9f32b9c44984d8a05c128859c7a410&imgtype=0&src=http%3A%2F%2Fwww.pianshen.com%2Fimages%2F213%2Ff8341462947cd6c3e04e0bdbb324b2e5.png" alt="vue"></p>
+<h3 id="多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解-全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机"><a href="#多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解-全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机" class="headerlink" title="多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机:"></a><strong>多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机:</strong></h3><ul>
+<li><strong>beforeCreate</strong></li>
+<li><strong>created</strong></li>
+<li><strong>beforeMount</strong></li>
+<li><strong>mounted</strong></li>
+<li><strong>beforeUpdate</strong></li>
+<li><strong>updated</strong></li>
+<li><strong>beforeDestroy</strong></li>
+<li><strong>destroyed</strong></li>
+</ul>
+<ol>
+<li><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a><strong>beforeCreate</strong></h3><blockquote>
+<p><strong>实例组件刚创建，元素DOM和数据都还没有初始化，data和mthods里面的数据在这个钩子函数里都拿不到。</strong></p>
 </blockquote>
 </li>
-</ul>
+<li><h3 id="created"><a href="#created" class="headerlink" title="created"></a><strong>created</strong></h3><blockquote>
+<p><strong>数据data已经初始化完成，mthonds也已经可以调用，但是DOM未挂载到页面上。在这里不能进行dom元素的操作，除非利用vm.$nextTick()这个方法是可以等页面中dom全部挂载到页面上就会回调的一个方法，里面就可以进行对dom元素的操作,如果想在created里面操作dom一定记得加钩子函数.</strong></p>
+</blockquote>
+</li>
+<li><h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a><strong>beforeMount</strong></h3><blockquote>
+<p><strong>此时已经完成虚拟dom的加载也就是在内存中已经有了虚拟dom树，数据也初始化完成，但是尚未把模板渲染到页面中</strong></p>
+</blockquote>
+</li>
+<li><h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a><strong>mounted</strong></h3><blockquote>
+<p><strong>此时已经完成了dom的挂载和渲染这里面已经可以对dom进行操作了，所以一般对dom操作的步骤都应当写在这个钩子函数里面，但是我个人实践发现不管在哪里操作dom只要我操作的这个dom里面有关图片的加载就容易出问题，应为图片的加载比较特俗，一般我想拿到精确的数据我会等图片加载完回调一个图片load事件就可以解决了</strong></p>
+</blockquote>
+</li>
+<li><h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a><strong>beforeUpdate</strong></h3><blockquote>
+<p><strong>只要是页面数据改变了都会触发,data里面想更改的数据已经改变了，但是如果页面一直在调用这个数据此时并不会触发vue的响应式，所以页面呈现的还是老的数据，页面上的数据还是旧的。页面尚未和数据同步更新</strong></p>
+</blockquote>
+</li>
+<li><h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a><strong>updated</strong></h3><blockquote>
+<p><strong>只要是页面数据改变了都会触发，数据更新完毕，页面的数据是更新完成的。这里和beforeupdate里面相差的就是这里已经完成了页面的数据和 model数据的同步</strong></p>
+</blockquote>
+</li>
+<li><h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a><strong>beforeDestroy</strong></h3><blockquote>
+<p><strong>执行这个钩子函数的时候vue实例就已经从运行阶段进入到销毁阶段，实例身上所有的data和所有的methods以及filter，指令…..都处于可用状态，意义上其实还没有真正执行销毁的过程</strong></p>
+</blockquote>
+</li>
+<li><h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a><strong>destroyed</strong></h3><blockquote>
+<p><strong>当执行到这里的时候，实例身上的所有的方法 指令 数据…都已经不可以调用,此时vue实例已经完全销毁了</strong></p>
+</blockquote>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote>
+<p><strong>vue生命周期是非常重要的，其中created和mounted是本人经常使用到的两个钩子函数，每个钩子函数执行的时机都不一样，需要认真考虑它们执行的时机及运用，在不同的业务逻辑下运用不同的钩子函数，以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+</blockquote>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -393,7 +376,7 @@ function b(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/">https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/</a>
+                    <a href="https://wenq-first.github.io/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/">https://wenq-first.github.io/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -431,8 +414,8 @@ function b(){
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -495,9 +478,10 @@ function b(){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/">
                     <div class="card-image">
@@ -516,9 +500,9 @@ function b(){
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -531,6 +515,7 @@ function b(){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -549,20 +534,26 @@ function b(){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/02/wai-bian-ju-ta-xian/">
+                <a href="/2020/04/02/js-zhong-de-yu-jie-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="外边距塌陷">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="关于js的预解析">
                         
-                        <span class="card-title">外边距塌陷</span>
+                        <span class="card-title">关于js的预解析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            造成外边距塌陷的原因
-根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi
+                            
+js代码为什么会被预解析
+js代码通过浏览器的 js 解释器（js 引擎） 来执行的
+js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
+
+
+预解析的步骤
+首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为J
                         
                     </div>
                     <div class="publish-info">
@@ -584,12 +575,8 @@ function b(){
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/html/">
-                        <span class="chip bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/css/">
-                        <span class="chip bg-color">css</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>

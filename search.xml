@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>vue的生命周期</title>
+      <link href="/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/"/>
+      <url>/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程-这个过程就是vue的生命周期。直接上一张官网的图"><a href="#首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程-这个过程就是vue的生命周期。直接上一张官网的图" class="headerlink" title="首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图:"></a><strong>首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图:</strong></h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585920841526&di=bf9f32b9c44984d8a05c128859c7a410&imgtype=0&src=http%3A%2F%2Fwww.pianshen.com%2Fimages%2F213%2Ff8341462947cd6c3e04e0bdbb324b2e5.png" alt="vue"></p><h3 id="多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解-全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机"><a href="#多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解-全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机" class="headerlink" title="多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机:"></a><strong>多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它们的执行时机:</strong></h3><ul><li><strong>beforeCreate</strong></li><li><strong>created</strong></li><li><strong>beforeMount</strong></li><li><strong>mounted</strong></li><li><strong>beforeUpdate</strong></li><li><strong>updated</strong></li><li><strong>beforeDestroy</strong></li><li><strong>destroyed</strong></li></ul><ol><li><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a><strong>beforeCreate</strong></h3><blockquote><p><strong>实例组件刚创建，元素DOM和数据都还没有初始化，data和mthods里面的数据在这个钩子函数里都拿不到。</strong></p></blockquote></li><li><h3 id="created"><a href="#created" class="headerlink" title="created"></a><strong>created</strong></h3><blockquote><p><strong>数据data已经初始化完成，mthonds也已经可以调用，但是DOM未挂载到页面上。在这里不能进行dom元素的操作，除非利用vm.$nextTick()这个方法是可以等页面中dom全部挂载到页面上就会回调的一个方法，里面就可以进行对dom元素的操作,如果想在created里面操作dom一定记得加钩子函数.</strong></p></blockquote></li><li><h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a><strong>beforeMount</strong></h3><blockquote><p><strong>此时已经完成虚拟dom的加载也就是在内存中已经有了虚拟dom树，数据也初始化完成，但是尚未把模板渲染到页面中</strong></p></blockquote></li><li><h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a><strong>mounted</strong></h3><blockquote><p><strong>此时已经完成了dom的挂载和渲染这里面已经可以对dom进行操作了，所以一般对dom操作的步骤都应当写在这个钩子函数里面，但是我个人实践发现不管在哪里操作dom只要我操作的这个dom里面有关图片的加载就容易出问题，应为图片的加载比较特俗，一般我想拿到精确的数据我会等图片加载完回调一个图片load事件就可以解决了</strong></p></blockquote></li><li><h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a><strong>beforeUpdate</strong></h3><blockquote><p><strong>只要是页面数据改变了都会触发,data里面想更改的数据已经改变了，但是如果页面一直在调用这个数据此时并不会触发vue的响应式，所以页面呈现的还是老的数据，页面上的数据还是旧的。页面尚未和数据同步更新</strong></p></blockquote></li><li><h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a><strong>updated</strong></h3><blockquote><p><strong>只要是页面数据改变了都会触发，数据更新完毕，页面的数据是更新完成的。这里和beforeupdate里面相差的就是这里已经完成了页面的数据和 model数据的同步</strong></p></blockquote></li><li><h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a><strong>beforeDestroy</strong></h3><blockquote><p><strong>执行这个钩子函数的时候vue实例就已经从运行阶段进入到销毁阶段，实例身上所有的data和所有的methods以及filter，指令…..都处于可用状态，意义上其实还没有真正执行销毁的过程</strong></p></blockquote></li><li><h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a><strong>destroyed</strong></h3><blockquote><p><strong>当执行到这里的时候，实例身上的所有的方法 指令 数据…都已经不可以调用,此时vue实例已经完全销毁了</strong></p></blockquote><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote><p><strong>vue生命周期是非常重要的，其中created和mounted是本人经常使用到的两个钩子函数，每个钩子函数执行的时机都不一样，需要认真考虑它们执行的时机及运用，在不同的业务逻辑下运用不同的钩子函数，以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于js的预解析</title>
       <link href="/2020/04/02/js-zhong-de-yu-jie-xi/"/>
       <url>/2020/04/02/js-zhong-de-yu-jie-xi/</url>
