@@ -4,15 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于js的预解析, html">
-    <meta name="description" content="
-js代码为什么会被预解析
-js代码通过浏览器的 js 解释器（js 引擎） 来执行的
-js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
-
-
-预解析的步骤
-首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为J">
+    <meta name="keywords" content="js中字符串操作相关方法, html">
+    <meta name="description" content="JS字符串常用方法总结：
+toLowerCase(): 把字符串转为小写，返回新的字符串。
+var str=&amp;quot;Hello World&amp;quot;;
+var str1=str.toLowerCase();
+console.log(s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于js的预解析 | Smile</title>
+    <title>js中字符串操作相关方法 | Smile</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +222,12 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于js的预解析</h1>
+                    <h1 class="description center-align post-title">js中字符串操作相关方法</h1>
                 </div>
             </div>
         </div>
@@ -268,6 +265,10 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                                 前端
                             </a>
                         
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%96%B9%E6%B3%95/" class="post-category">
+                                方法
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -277,7 +278,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-02
+                    2020-04-07
                 </div>
                 
 
@@ -286,14 +287,14 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    789
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 				
@@ -309,65 +310,109 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><h2 id="js代码为什么会被预解析"><a href="#js代码为什么会被预解析" class="headerlink" title="js代码为什么会被预解析"></a>js代码为什么会被预解析</h2><ol>
-<li><strong>js代码通过浏览器的 js 解释器（js 引擎） 来执行的</strong></li>
-<li><strong>js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行</strong></li>
-</ol>
-</li>
-<li><h2 id="预解析的步骤"><a href="#预解析的步骤" class="headerlink" title="预解析的步骤"></a>预解析的步骤</h2><ol>
-<li><strong>首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是一个解释执行的脚本语言，从上到下执行。如果函数调用出现在函数定义之前，就会导致失败。）</strong></li>
-<li><strong>变量提升的是声明并不赋值， 函数 只提升声明 并不调用</strong></li>
-<li><strong>变量提升也好函数提升也好都是在自己所处的当前作用域下进行提升</strong></li>
-</ol>
-</li>
-<li><h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例:"></a>代码示例:</h2><ol>
-<li><strong>测试1：</strong><pre><code>//测试1
-function demo1(){
-console.log(a); 
-var a = 5;
-}
-var a = 10;
-demo1(); //undefined</code></pre></li>
-</ol>
-<strong>最后打印的结果是undefined，这就是js的预解析机制，它并不会去找全局变量a = 10；而是在demo1函数中在当前的函数作用域中提升了变量，也就是预解析机制;</strong><pre><code>//和测试1等价
-var a;
-function demo1(){
-  var a;
-  console.log(a); 
-  a = 5;
-}
- a = 10;
- demo1(); //undefined</code></pre><ol start="2">
-<li><strong>测试2：</strong><pre><code>b(); //此时b为变量 
-//测试2
-var b = function demo2(){
-console.log(&#39;demo2&#39;);
-}</code></pre></li>
-</ol>
-<strong>最后打印的结果是b is not function，这里因为此处的b是函数表达式，被当成变量提升而不是函数声明提升，所以b（）调用这个方法在完成赋值之前是被js解析成一个变量，变量怎么可以被当成方法来调用呢？如果b（）在完成赋值之后那么就会打印demo2如下图代码</strong><pre><code>  //测试2
-var b = function demo2(){
-  console.log(&#39;demo2&#39;);
-}
-  b(); //此时b为函数</code></pre><ol start="3">
-<li><strong>测试3：</strong><pre><code>b(); //此时b为函数
-//测试3
-var b = 5;
-function b(){
-console.log(&#39;demo3&#39;);
-}</code></pre></li>
-</ol>
-<strong>最后打印的结果是demo3，这里调用b的时候js是把b解析成了下面的函数b，那么疑惑来了函数名和变量名相同，怎么才能确定b到底是变量还是方法呢？我的理解是看b在哪个时候调用，如果b在被赋值之前调用同名的变量和方法那么调用的就是方法，如果是在被赋值之后调用那就是取决你为b赋的值，在这里就是b = 5，代码如下</strong><pre><code>  //测试3
-  var b = 5;
-function b(){
-  console.log(&#39;demo3&#39;);
-}
-  b(); //b is not a function 
-  console.log(b); // 当然真实运行的时候不能有上面那条代码不然直接报错卡死在上一条代码也就/不会执行到这里，这里的b是当作了变量所以是可以正常打印的，结果是5</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><blockquote>
-<p><strong>js的预解析机制，个人理解就是搞清除被预解析的变量和函数分别是在哪个作用域下，这个一定得分清，还有就是变量和函数同名  调用的到底是什么，这个得看代码的执行时机了。以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+                <h2 id="JS字符串常用方法总结："><a href="#JS字符串常用方法总结：" class="headerlink" title="JS字符串常用方法总结："></a>JS字符串常用方法总结：</h2><ol>
+<li><p><strong>toLowerCase(): 把字符串转为小写，返回新的字符串。</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.toLowerCase();
+console.log(str); //Hello World
+console.log(str1); //hello world</code></pre></li>
+<li><p><strong>toUpperCase(): 把字符串转为大写，返回新的字符串。</strong></p>
+<pre><code>var str=&quot;hello world&quot;;
+var str1=str.toUpperCase();
+console.log(str); //hello world
+console.log(str1); //HELLO WORLD</code></pre></li>
+<li><p><strong>charAt(): 返回指定下标位置的字符。如果index不在0-str.length(不包含str.length)之间，返回空字符串。</strong></p>
+<pre><code>var str=&quot;hello world&quot;;
+var str1=str.charAt(6);
+console.log(str1); //w</code></pre></li>
+<li><p><strong>charCodeAt(): 返回指定下标位置的字符的unicode编码,这个返回值是 0 - 65535 之间的整数。如果index不在0-str.length(不包含str.length)之间，返回NaN。</strong></p>
+<pre><code>var str=&quot;hello world&quot;;
+var str1=str.charCodeAt(1);
+var str2=str.charCodeAt(-2); //NaN
+console.log(str1); //101</code></pre></li>
+<li><p><strong>indexOf(): 返回某个指定的子字符串在字符串中第一次出现的位置，indexOf()方法对大小写敏感，如果子字符串没有找到，返回-1。第二个参数表示从哪个下标开始查找，没有写则默认从下标0开始查找。</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.indexOf(&quot;o&quot;);
+var str2=str.indexOf(&quot;world&quot;);
+var str3=str.indexOf(&quot;o&quot;, 5);
+console.log(str1); //4 默认只找第一个关键字位置，从下标0开始查找
+console.log(str2); //-1 没有找到
+console.log(str3); //7</code></pre></li>
+<li><p><strong>lastIndexOf()方法对大小写敏感，如果子字符串没有找到，返回-1。第二个参数表示从哪个下标开始查找，没有写则默认从最后一个字符处开始查找。</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.lastIndexOf(&quot;o&quot;);
+var str2=str.lastIndexOf(&quot;world&quot;);
+var str3=str.lastIndexOf(&quot;o&quot;, 6);
+console.log(str1); //7
+console.log(str2); //-1
+console.log(str3); //4</code></pre></li>
+<li><p><strong>slice(): 返回字符串中提取的子字符串。</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.slice(2); //如果只有一个参数，则提取开始下标到结尾处的所有字符串
+var str2=str.slice(2,7); //两个参数，提取下标为2，到下标为7但不包含下标为7的字符串
+var str3=str.slice(-7,-2); //如果是负数，-1为字符串的最后一个字符。提取从下标-7开始到下标-2但不包含下标-2的字符串。前一个数要小于后一个数，否则返回空字符串
+
+console.log(str1); //llo World
+console.log(str2); //llo W
+console.log(str3); //o Wor</code></pre></li>
+<li><p><strong>substring(): 提取字符串中介于两个指定下标之间的字符。</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.substring(2); //如果只有一个参数，则提取开始下标到结尾处的所有字符串
+var str2=str.substring(2,2);
+var str3=str.substring(2,7);//两个参数，提取下标为2，到下标为7但不包含下标为7的字符串
+console.log(str1); //llo World
+console.log(str2); //如果两个参数相等，返回长度为0的空串
+console.log(str3); //llo W</code></pre></li>
+<li><p><strong>substr(): 返回从指定下标开始指定长度的的子字符串</strong></p>
+<pre><code>var str=&quot;Hello World&quot;;
+var str1=str.substr(1)
+var str2=str.substr(1,3);
+var str3=str.substr(-3,2);
+console.log(str1); //ello World 
+console.log(str2); //ell
+console.log(str3); //rl</code></pre></li>
+<li><p><strong>split(): 把字符串分割成字符串数组。</strong></p>
+<pre><code>var str=&quot;AA BB CC DD&quot;;
+var string1=&quot;1:2:3:4:5&quot;;
+var str1=str.split(&quot;&quot;);//如果把空字符串 (&quot;&quot;)用作分割符，那么字符串的每个字符之间都会被分割
+var str2=str.split(&quot; &quot;); //以空格为分隔符
+var str3=str.split(&quot;&quot;,4); //4指定返回数组的最大长度
+var str4=string1.split(&quot;:&quot;);
+console.log(str1); // [&quot;A&quot;, &quot;A&quot;, &quot; &quot;, &quot;B&quot;, &quot;B&quot;, &quot; &quot;, &quot;C&quot;, &quot;C&quot;, &quot; &quot;, &quot;D&quot;, &quot;D&quot;]
+console.log(str2); //[&quot;AA&quot; &quot;BB&quot; &quot;CC&quot; &quot;DD&quot;]
+console.log(str3); //[&quot;A&quot;, &quot;A&quot;, &quot; &quot;, &quot;B&quot;]
+console.log(str4); // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</code></pre></li>
+<li><p><strong>replace(): 在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</strong></p>
+<pre><code>var str=&quot;hello WORLD&quot;;
+var reg=/o/ig; //o为要替换的关键字，不能加引号，否则替换不生效，i忽略大小写，g表示全局查找。
+var str1=str.replace(reg,&quot;**&quot;)
+console.log(str1); //hell** W**RLD</code></pre></li>
+<li><p><strong>match(): 返回所有查找的关键字内容的数组</strong></p>
+<pre><code>var str=&quot;To be or not to be&quot;;
+var reg=/to/ig;
+var str1=str.match(reg);
+console.log(str1); //[&quot;To&quot;, &quot;to&quot;]
+console.log(str.match(&quot;Hello&quot;)); //null</code></pre></li>
+<li><p><strong>repeat()方法返回一个新字符串，表示将原字符串重复n次。</strong></p>
+<pre><code>&#39;x&#39;.repeat(3) // &quot;xxx&quot;
+&#39;hello&#39;.repeat(2) // &quot;hellohello&quot;
+&#39;na&#39;.repeat(0) // &quot;&quot;</code></pre></li>
+<li><p><strong>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。</strong></p>
+<pre><code>&#39;x&#39;.padStart(5, &#39;ab&#39;) // &#39;ababx&#39;
+&#39;x&#39;.padStart(4, &#39;ab&#39;) // &#39;abax&#39;
+
+&#39;x&#39;.padEnd(5, &#39;ab&#39;) // &#39;xabab&#39;
+&#39;x&#39;.padEnd(4, &#39;ab&#39;) // &#39;xaba&#39;</code></pre><blockquote>
+<p><strong>padStart()和padEnd()一共接受两个参数，第一个参数是字符串补全生效的最大长度，第二个参数是用来补全的字符串。如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。如果省略第二个参数，默认使用空格补全长度。</strong></p>
 </blockquote>
 </li>
-</ul>
+<li><p><strong>ES2019 对字符串实例新增了trimStart()和trimEnd()这两个方法。它们的行为与trim()一致，trimStart()消除字符串头部的空格，trimEnd()消除尾部的空格。它们返回的都是新字符串，不会修改原始字符串。</strong></p>
+<pre><code>const s = &#39;  abc  &#39;;
+
+s.trim() // &quot;abc&quot; 去除前后所有的空格
+s.trimStart() // &quot;abc  &quot; 
+s.trimEnd() // &quot;  abc&quot;</code></pre></li>
+</ol>
 
             </div>
             <hr/>
@@ -393,7 +438,7 @@ function b(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/">https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/</a>
+                    <a href="https://wenq-first.github.io/2020/04/07/js-de-zi-fu-chuan-fang-fa/">https://wenq-first.github.io/2020/04/07/js-de-zi-fu-chuan-fang-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -495,29 +540,92 @@ function b(){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/">
+                <a href="/2020/04/07/js-de-zi-fu-chuan-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue的生命周期">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="js中字符串操作相关方法">
                         
-                        <span class="card-title">vue的生命周期</span>
+                        <span class="card-title">js中字符串操作相关方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图: 多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它
+                            JS字符串常用方法总结：
+toLowerCase(): 把字符串转为小写，返回新的字符串。
+var str=&quot;Hello World&quot;;
+var str1=str.toLowerCase();
+console.log(s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%96%B9%E6%B3%95/" class="post-category">
+                                    方法
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/07/san-da-ji-suan-bi-jiao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="watch-computed-methods之间的对比">
+                        
+                        <span class="card-title">watch-computed-methods之间的对比</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            computed
+computed属性结果会被缓存,除非依赖的响应式属性发生变化才会重新计算,主要当作属性来使用//这意味着下面的计算属性将不再更新，因为Date.now()不是响应式依赖：
+computed:{
+  nowTime(){
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -537,66 +645,12 @@ function b(){
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
                     <a href="/tags/vue/">
                         <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/02/wai-bian-ju-ta-xian/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="外边距塌陷">
-                        
-                        <span class="card-title">外边距塌陷</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            造成外边距塌陷的原因
-根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2/" class="post-category">
-                                    页面
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/html/">
-                        <span class="chip bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/css/">
-                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>

@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>js中字符串操作相关方法</title>
+      <link href="/2020/04/07/js-de-zi-fu-chuan-fang-fa/"/>
+      <url>/2020/04/07/js-de-zi-fu-chuan-fang-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="JS字符串常用方法总结："><a href="#JS字符串常用方法总结：" class="headerlink" title="JS字符串常用方法总结："></a>JS字符串常用方法总结：</h2><ol><li><p><strong>toLowerCase(): 把字符串转为小写，返回新的字符串。</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.toLowerCase();console.log(str); //Hello Worldconsole.log(str1); //hello world</code></pre></li><li><p><strong>toUpperCase(): 把字符串转为大写，返回新的字符串。</strong></p><pre><code>var str=&quot;hello world&quot;;var str1=str.toUpperCase();console.log(str); //hello worldconsole.log(str1); //HELLO WORLD</code></pre></li><li><p><strong>charAt(): 返回指定下标位置的字符。如果index不在0-str.length(不包含str.length)之间，返回空字符串。</strong></p><pre><code>var str=&quot;hello world&quot;;var str1=str.charAt(6);console.log(str1); //w</code></pre></li><li><p><strong>charCodeAt(): 返回指定下标位置的字符的unicode编码,这个返回值是 0 - 65535 之间的整数。如果index不在0-str.length(不包含str.length)之间，返回NaN。</strong></p><pre><code>var str=&quot;hello world&quot;;var str1=str.charCodeAt(1);var str2=str.charCodeAt(-2); //NaNconsole.log(str1); //101</code></pre></li><li><p><strong>indexOf(): 返回某个指定的子字符串在字符串中第一次出现的位置，indexOf()方法对大小写敏感，如果子字符串没有找到，返回-1。第二个参数表示从哪个下标开始查找，没有写则默认从下标0开始查找。</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.indexOf(&quot;o&quot;);var str2=str.indexOf(&quot;world&quot;);var str3=str.indexOf(&quot;o&quot;, 5);console.log(str1); //4 默认只找第一个关键字位置，从下标0开始查找console.log(str2); //-1 没有找到console.log(str3); //7</code></pre></li><li><p><strong>lastIndexOf()方法对大小写敏感，如果子字符串没有找到，返回-1。第二个参数表示从哪个下标开始查找，没有写则默认从最后一个字符处开始查找。</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.lastIndexOf(&quot;o&quot;);var str2=str.lastIndexOf(&quot;world&quot;);var str3=str.lastIndexOf(&quot;o&quot;, 6);console.log(str1); //7console.log(str2); //-1console.log(str3); //4</code></pre></li><li><p><strong>slice(): 返回字符串中提取的子字符串。</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.slice(2); //如果只有一个参数，则提取开始下标到结尾处的所有字符串var str2=str.slice(2,7); //两个参数，提取下标为2，到下标为7但不包含下标为7的字符串var str3=str.slice(-7,-2); //如果是负数，-1为字符串的最后一个字符。提取从下标-7开始到下标-2但不包含下标-2的字符串。前一个数要小于后一个数，否则返回空字符串console.log(str1); //llo Worldconsole.log(str2); //llo Wconsole.log(str3); //o Wor</code></pre></li><li><p><strong>substring(): 提取字符串中介于两个指定下标之间的字符。</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.substring(2); //如果只有一个参数，则提取开始下标到结尾处的所有字符串var str2=str.substring(2,2);var str3=str.substring(2,7);//两个参数，提取下标为2，到下标为7但不包含下标为7的字符串console.log(str1); //llo Worldconsole.log(str2); //如果两个参数相等，返回长度为0的空串console.log(str3); //llo W</code></pre></li><li><p><strong>substr(): 返回从指定下标开始指定长度的的子字符串</strong></p><pre><code>var str=&quot;Hello World&quot;;var str1=str.substr(1)var str2=str.substr(1,3);var str3=str.substr(-3,2);console.log(str1); //ello World console.log(str2); //ellconsole.log(str3); //rl</code></pre></li><li><p><strong>split(): 把字符串分割成字符串数组。</strong></p><pre><code>var str=&quot;AA BB CC DD&quot;;var string1=&quot;1:2:3:4:5&quot;;var str1=str.split(&quot;&quot;);//如果把空字符串 (&quot;&quot;)用作分割符，那么字符串的每个字符之间都会被分割var str2=str.split(&quot; &quot;); //以空格为分隔符var str3=str.split(&quot;&quot;,4); //4指定返回数组的最大长度var str4=string1.split(&quot;:&quot;);console.log(str1); // [&quot;A&quot;, &quot;A&quot;, &quot; &quot;, &quot;B&quot;, &quot;B&quot;, &quot; &quot;, &quot;C&quot;, &quot;C&quot;, &quot; &quot;, &quot;D&quot;, &quot;D&quot;]console.log(str2); //[&quot;AA&quot; &quot;BB&quot; &quot;CC&quot; &quot;DD&quot;]console.log(str3); //[&quot;A&quot;, &quot;A&quot;, &quot; &quot;, &quot;B&quot;]console.log(str4); // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</code></pre></li><li><p><strong>replace(): 在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</strong></p><pre><code>var str=&quot;hello WORLD&quot;;var reg=/o/ig; //o为要替换的关键字，不能加引号，否则替换不生效，i忽略大小写，g表示全局查找。var str1=str.replace(reg,&quot;**&quot;)console.log(str1); //hell** W**RLD</code></pre></li><li><p><strong>match(): 返回所有查找的关键字内容的数组</strong></p><pre><code>var str=&quot;To be or not to be&quot;;var reg=/to/ig;var str1=str.match(reg);console.log(str1); //[&quot;To&quot;, &quot;to&quot;]console.log(str.match(&quot;Hello&quot;)); //null</code></pre></li><li><p><strong>repeat()方法返回一个新字符串，表示将原字符串重复n次。</strong></p><pre><code>&#39;x&#39;.repeat(3) // &quot;xxx&quot;&#39;hello&#39;.repeat(2) // &quot;hellohello&quot;&#39;na&#39;.repeat(0) // &quot;&quot;</code></pre></li><li><p><strong>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。</strong></p><pre><code>&#39;x&#39;.padStart(5, &#39;ab&#39;) // &#39;ababx&#39;&#39;x&#39;.padStart(4, &#39;ab&#39;) // &#39;abax&#39;&#39;x&#39;.padEnd(5, &#39;ab&#39;) // &#39;xabab&#39;&#39;x&#39;.padEnd(4, &#39;ab&#39;) // &#39;xaba&#39;</code></pre><blockquote><p><strong>padStart()和padEnd()一共接受两个参数，第一个参数是字符串补全生效的最大长度，第二个参数是用来补全的字符串。如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。如果省略第二个参数，默认使用空格补全长度。</strong></p></blockquote></li><li><p><strong>ES2019 对字符串实例新增了trimStart()和trimEnd()这两个方法。它们的行为与trim()一致，trimStart()消除字符串头部的空格，trimEnd()消除尾部的空格。它们返回的都是新字符串，不会修改原始字符串。</strong></p><pre><code>const s = &#39;  abc  &#39;;s.trim() // &quot;abc&quot; 去除前后所有的空格s.trimStart() // &quot;abc  &quot; s.trimEnd() // &quot;  abc&quot;</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> 方法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>watch-computed-methods之间的对比</title>
+      <link href="/2020/04/07/san-da-ji-suan-bi-jiao/"/>
+      <url>/2020/04/07/san-da-ji-suan-bi-jiao/</url>
+      
+        <content type="html"><![CDATA[<h2 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h2><ol><li><strong>computed属性结果会被缓存,除非依赖的响应式属性发生变化才会重新计算,主要当作属性来使用</strong><pre><code>//这意味着下面的计算属性将不再更新，因为Date.now()不是响应式依赖：computed:{  nowTime(){   return Date.now();}}</code></pre></li><li><strong>顾名思义,计算属性一般用于属性的计算,有些属性需要一定计算后才能展示给客户看，这个时候就需要用的computed就可以很好的解决</strong><pre><code>&lt;div id=&quot;example&quot;&gt;{{ message.split('').reverse().join('') }}&lt;/div&gt;</code></pre><blockquote><p><strong>如果不用计算属性，那么就如上面一样用mastuach语法会让结构看来臃肿不够清晰</strong></p></blockquote><pre><code> &lt;div id=&quot;example&quot;&gt;   {{ reversedMessage }} &lt;/div&gt; //如果需要详细看reversedMessage只需去computed里面看它的具体实现即可 var vm = new Vue({   el: &#39;#example&#39;,   data: {     message: &#39;Hello&#39;   },   computed: {     reversedMessage: function () {       return this.message.split(&#39;&#39;).reverse().join(&#39;&#39;);     }   } })</code></pre></li><li><strong>计算属性默认时getter方法,如果你需要也可以给该计算属性设置一个setter方法</strong><pre><code>computed: {  fullMessage:{    //getter    get(){      return this.message + &#39;-&#39; + &#39;Smile&#39;;    }    //setter    set(newValue){      this.message = newValue;    }  }   }</code></pre></li></ol><h2 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h2><ol><li><strong>methods方法代表一个具体的操作，主要用以书写业务逻辑</strong></li><li><strong>methods和computed最大的差别就在于methods不会缓存,所以如果用methods代替computed的话，那么调用了多少次就执行了多少次，那么可想而知性能是多大的浪费</strong><pre><code>//下面假设已经有了计算属性和方法，返回的结果都完全一样，但是计算属性在没有改变//响应式属性时只会调用一次，而方法调用了多少次就执行了多少次&lt;div id=&quot;example&quot;&gt;  {{ reversedMessage }} //计算属性  {{ reversedMessage }} //计算属性  {{ reversedMessage }} //计算属性  {{ methodMessage }} //methods  {{ methodMessage }} //methods  {{ methodMessage }} //methods&lt;/div&gt;</code></pre></li></ol><h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><ol><li><strong>虽然计算属性在大多数情况下更合适，但有时候也需要一个自定义的watcher。这是为什么Vue通过watch选项提供一个更通用的方法，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的</strong></li><li><strong>主要用来监听某些特定数据的变化，从而进行某些具体的业务逻辑；可以看作时<code>computed</code>和<code>methods</code>的结合体</strong><pre><code>&lt;template&gt;&lt;div&gt;  &lt;p&gt;obj.a: {{obj.a}}&lt;/p&gt;  &lt;p&gt;obj.a: &lt;input type=&quot;text&quot; v-model=&quot;obj.a&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default {  name: &#39;index&#39;,  data(){      return{          obj:{              a:&#39;初始值&#39;          }      }  },  watch: {      obj: {          handler(newVal, objVal) {             // if(newVal.obj || objVal.obj != objVal.obj){              //    console.log(22);    //控制台并没有打印   监测为对象的时候，newVal == oldVal        //      }                    console.log(33)    //打印为33          },          deep:true      }  }}&lt;/script&gt;</code></pre><blockquote><p><strong>对象和数组都是引用类型，引用类型变量存的是地址，地址没有变，所以不会触发watch。这时我们需要进行深度监听，就需要加上一个属性 deep，值为 true</strong></p></blockquote></li></ol><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote><ol><li><strong>watch用于观察和监听页面上的vue实例，当你需要在数据变化响应时，执行异步操作，或高性能消耗的操作，那么watch为最佳选择。</strong></li><li><strong>computed可以关联多个实时计算的对象，当这些对象中的其中一个改变时都会触发这个属性具有缓存能力，所以只有当数据再次改变时才会重新渲染，否则就会直接拿取缓存中的数据.</strong></li><li><strong>methods方法表示一个具体的操作，主要书写业务逻辑。</strong><br>以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue的组件化开发</title>
+      <link href="/2020/04/05/vue-zu-jian-hua/"/>
+      <url>/2020/04/05/vue-zu-jian-hua/</url>
+      
+        <content type="html"><![CDATA[<h2 id="vue的组件化"><a href="#vue的组件化" class="headerlink" title="vue的组件化"></a>vue的组件化</h2><blockquote><p>组件化是Vue的精髓，Vue就是由一个一个的组件构成的,形成一颗庞大的组件树。Vue的组件化设计到的内容又非常多，因此在这里阐述一下个人对Vue的组件化的理解。</p></blockquote><h2 id="组件的分类"><a href="#组件的分类" class="headerlink" title="组件的分类"></a>组件的分类</h2><ol><li><strong>完全公共组件和业务逻辑完全不相关的组件</strong></li><li><strong>和业务逻辑相关但多页面可以多次复用的组件</strong></li><li><strong>只和每个页面相关的子组件</strong></li></ol><blockquote><p>上面三种类型我个人喜欢抽出三个文件夹来存放</p></blockquote><h2 id="组件化和模块化的区别"><a href="#组件化和模块化的区别" class="headerlink" title="组件化和模块化的区别"></a>组件化和模块化的区别</h2><ol><li><strong>组件化：是从UI界面进行划分的——前端的组件化可以方便 UI界面的复用</strong></li><li><strong>模块化：是从代码逻辑的角度进行划分的——方便后台代码的分层开发，保证每个功能模块的职能单一。</strong></li></ol><h2 id="组件化的具体实例"><a href="#组件化的具体实例" class="headerlink" title="组件化的具体实例:"></a>组件化的具体实例:</h2><pre><code>&lt;template&gt;  &lt;div class=&quot;nav-bar&quot;&gt;    &lt;div class=&quot;left&quot;&gt;&lt;slot name=&quot;left&quot;&gt;&lt;/slot&gt;&lt;/div&gt;    &lt;div class=&quot;center&quot;&gt;&lt;slot name=&quot;center&quot;&gt;&lt;/slot&gt;&lt;/div&gt;    &lt;div class=&quot;right&quot;&gt;&lt;slot name=&quot;right&quot;&gt;&lt;/slot&gt;&lt;/div&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export default {    name: &quot;NavBar&quot;  }&lt;/script&gt;&lt;style scoped&gt;  .nav-bar {    display: flex;    height: 44px;    line-height: 44px;    text-align: center;    box-shadow: 0 1px 1px rgba(100,100,100,.1);  }  .left, .right {    width: 60px;  }  .center {    flex: 1;  }&lt;/style&gt;</code></pre><blockquote><p><strong>如上面代码是我个人封装的一个navBar，头部导航条，在很多项目中都是用的上的,这就属性和业务逻辑完全不相关的组件，很多页面都用的上，一份代码多次复用，这也是我认为组件化最大的特点，复用性!</strong></p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><blockquote><p><strong>模块之间需要考虑，模块之间页面跳转、数据传递、初始化处理。组件化是工程分为各个模块，各个模块之间相互解耦，独立起来可编译调试，合成一个工程需要协作、同步。以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue的生命周期</title>
       <link href="/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/"/>
       <url>/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/</url>
@@ -14,6 +99,8 @@
       <categories>
           
           <category> 前端 </category>
+          
+          <category> 框架 </category>
           
       </categories>
       
@@ -64,6 +151,8 @@
       <categories>
           
           <category> 前端 </category>
+          
+          <category> 页面 </category>
           
       </categories>
       

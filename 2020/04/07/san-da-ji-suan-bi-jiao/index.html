@@ -4,15 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于js的预解析, html">
-    <meta name="description" content="
-js代码为什么会被预解析
-js代码通过浏览器的 js 解释器（js 引擎） 来执行的
-js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
-
-
-预解析的步骤
-首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为J">
+    <meta name="keywords" content="watch-computed-methods之间的对比, html">
+    <meta name="description" content="computed
+computed属性结果会被缓存,除非依赖的响应式属性发生变化才会重新计算,主要当作属性来使用//这意味着下面的计算属性将不再更新，因为Date.now()不是响应式依赖：
+computed:{
+  nowTime(){
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于js的预解析 | Smile</title>
+    <title>watch-computed-methods之间的对比 | Smile</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +222,12 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于js的预解析</h1>
+                    <h1 class="description center-align post-title">watch-computed-methods之间的对比</h1>
                 </div>
             </div>
         </div>
@@ -256,6 +253,10 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                                 <span class="chip bg-color">js</span>
                             </a>
                         
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -268,6 +269,10 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                                 前端
                             </a>
                         
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%A1%86%E6%9E%B6/" class="post-category">
+                                框架
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -277,7 +282,7 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-02
+                    2020-04-07
                 </div>
                 
 
@@ -286,14 +291,14 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    789
+                    924
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 				
@@ -309,65 +314,101 @@ js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><h2 id="js代码为什么会被预解析"><a href="#js代码为什么会被预解析" class="headerlink" title="js代码为什么会被预解析"></a>js代码为什么会被预解析</h2><ol>
-<li><strong>js代码通过浏览器的 js 解释器（js 引擎） 来执行的</strong></li>
-<li><strong>js 解释器 来执行js 代码分为两步： 首先预解析 再 代码执行</strong></li>
-</ol>
-</li>
-<li><h2 id="预解析的步骤"><a href="#预解析的步骤" class="headerlink" title="预解析的步骤"></a>预解析的步骤</h2><ol>
-<li><strong>首先把函数声明和变量声明，提升到当前作用域最前面。（原因，是因为JS是一个解释执行的脚本语言，从上到下执行。如果函数调用出现在函数定义之前，就会导致失败。）</strong></li>
-<li><strong>变量提升的是声明并不赋值， 函数 只提升声明 并不调用</strong></li>
-<li><strong>变量提升也好函数提升也好都是在自己所处的当前作用域下进行提升</strong></li>
-</ol>
-</li>
-<li><h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例:"></a>代码示例:</h2><ol>
-<li><strong>测试1：</strong><pre><code>//测试1
-function demo1(){
-console.log(a); 
-var a = 5;
+                <h2 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h2><ol>
+<li><strong>computed属性结果会被缓存,除非依赖的响应式属性发生变化才会重新计算,主要当作属性来使用</strong><pre><code>//这意味着下面的计算属性将不再更新，因为Date.now()不是响应式依赖：
+computed:{
+  nowTime(){
+   return Date.now();
 }
-var a = 10;
-demo1(); //undefined</code></pre></li>
-</ol>
-<strong>最后打印的结果是undefined，这就是js的预解析机制，它并不会去找全局变量a = 10；而是在demo1函数中在当前的函数作用域中提升了变量，也就是预解析机制;</strong><pre><code>//和测试1等价
-var a;
-function demo1(){
-  var a;
-  console.log(a); 
-  a = 5;
-}
- a = 10;
- demo1(); //undefined</code></pre><ol start="2">
-<li><strong>测试2：</strong><pre><code>b(); //此时b为变量 
-//测试2
-var b = function demo2(){
-console.log(&#39;demo2&#39;);
 }</code></pre></li>
+<li><strong>顾名思义,计算属性一般用于属性的计算,有些属性需要一定计算后才能展示给客户看，这个时候就需要用的computed就可以很好的解决</strong><pre><code>&lt;div id=&quot;example&quot;&gt;
+{{ message.split('').reverse().join('') }}
+&lt;/div&gt;</code></pre><blockquote>
+<p><strong>如果不用计算属性，那么就如上面一样用mastuach语法会让结构看来臃肿不够清晰</strong></p>
+</blockquote>
+<pre><code> &lt;div id=&quot;example&quot;&gt;
+   {{ reversedMessage }}
+ &lt;/div&gt;
+ //如果需要详细看reversedMessage只需去computed里面看它的具体实现即可
+ var vm = new Vue({
+   el: &#39;#example&#39;,
+   data: {
+     message: &#39;Hello&#39;
+   },
+   computed: {
+     reversedMessage: function () {
+       return this.message.split(&#39;&#39;).reverse().join(&#39;&#39;);
+     }
+   }
+ })</code></pre></li>
+<li><strong>计算属性默认时getter方法,如果你需要也可以给该计算属性设置一个setter方法</strong><pre><code>computed: {
+  fullMessage:{
+    //getter
+    get(){
+      return this.message + &#39;-&#39; + &#39;Smile&#39;;
+    }
+    //setter
+    set(newValue){
+      this.message = newValue;
+    }
+  }
+   }</code></pre></li>
 </ol>
-<strong>最后打印的结果是b is not function，这里因为此处的b是函数表达式，被当成变量提升而不是函数声明提升，所以b（）调用这个方法在完成赋值之前是被js解析成一个变量，变量怎么可以被当成方法来调用呢？如果b（）在完成赋值之后那么就会打印demo2如下图代码</strong><pre><code>  //测试2
-var b = function demo2(){
-  console.log(&#39;demo2&#39;);
-}
-  b(); //此时b为函数</code></pre><ol start="3">
-<li><strong>测试3：</strong><pre><code>b(); //此时b为函数
-//测试3
-var b = 5;
-function b(){
-console.log(&#39;demo3&#39;);
-}</code></pre></li>
+<h2 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h2><ol>
+<li><strong>methods方法代表一个具体的操作，主要用以书写业务逻辑</strong></li>
+<li><strong>methods和computed最大的差别就在于methods不会缓存,所以如果用methods代替computed的话，那么调用了多少次就执行了多少次，那么可想而知性能是多大的浪费</strong><pre><code>//下面假设已经有了计算属性和方法，返回的结果都完全一样，但是计算属性在没有改变
+//响应式属性时只会调用一次，而方法调用了多少次就执行了多少次
+&lt;div id=&quot;example&quot;&gt;
+  {{ reversedMessage }} //计算属性
+  {{ reversedMessage }} //计算属性
+  {{ reversedMessage }} //计算属性
+  {{ methodMessage }} //methods
+  {{ methodMessage }} //methods
+  {{ methodMessage }} //methods
+&lt;/div&gt;</code></pre></li>
 </ol>
-<strong>最后打印的结果是demo3，这里调用b的时候js是把b解析成了下面的函数b，那么疑惑来了函数名和变量名相同，怎么才能确定b到底是变量还是方法呢？我的理解是看b在哪个时候调用，如果b在被赋值之前调用同名的变量和方法那么调用的就是方法，如果是在被赋值之后调用那就是取决你为b赋的值，在这里就是b = 5，代码如下</strong><pre><code>  //测试3
-  var b = 5;
-function b(){
-  console.log(&#39;demo3&#39;);
+<h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><ol>
+<li><strong>虽然计算属性在大多数情况下更合适，但有时候也需要一个自定义的watcher。这是为什么Vue通过watch选项提供一个更通用的方法，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的</strong></li>
+<li><strong>主要用来监听某些特定数据的变化，从而进行某些具体的业务逻辑；可以看作时<code>computed</code>和<code>methods</code>的结合体</strong><pre><code>&lt;template&gt;
+&lt;div&gt;
+  &lt;p&gt;obj.a: {{obj.a}}&lt;/p&gt;
+  &lt;p&gt;obj.a: &lt;input type=&quot;text&quot; v-model=&quot;obj.a&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: &#39;index&#39;,
+  data(){
+      return{
+          obj:{
+              a:&#39;初始值&#39;
+          }
+      }
+  },
+  watch: {
+      obj: {
+          handler(newVal, objVal) {
+             // if(newVal.obj || objVal.obj != objVal.obj){
+              //    console.log(22);    //控制台并没有打印   监测为对象的时候，newVal == oldVal
+        //      }
+                    console.log(33)    //打印为33
+          },
+          deep:true
+      }
+  }
 }
-  b(); //b is not a function 
-  console.log(b); // 当然真实运行的时候不能有上面那条代码不然直接报错卡死在上一条代码也就/不会执行到这里，这里的b是当作了变量所以是可以正常打印的，结果是5</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><blockquote>
-<p><strong>js的预解析机制，个人理解就是搞清除被预解析的变量和函数分别是在哪个作用域下，这个一定得分清，还有就是变量和函数同名  调用的到底是什么，这个得看代码的执行时机了。以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+&lt;/script&gt;</code></pre><blockquote>
+<p><strong>对象和数组都是引用类型，引用类型变量存的是地址，地址没有变，所以不会触发watch。这时我们需要进行深度监听，就需要加上一个属性 deep，值为 true</strong></p>
 </blockquote>
 </li>
-</ul>
+</ol>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote>
+<ol>
+<li><strong>watch用于观察和监听页面上的vue实例，当你需要在数据变化响应时，执行异步操作，或高性能消耗的操作，那么watch为最佳选择。</strong></li>
+<li><strong>computed可以关联多个实时计算的对象，当这些对象中的其中一个改变时都会触发这个属性具有缓存能力，所以只有当数据再次改变时才会重新渲染，否则就会直接拿取缓存中的数据.</strong></li>
+<li><strong>methods方法表示一个具体的操作，主要书写业务逻辑。</strong><br>以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</li>
+</ol>
+</blockquote>
 
             </div>
             <hr/>
@@ -393,7 +434,7 @@ function b(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/">https://wenq-first.github.io/2020/04/02/js-zhong-de-yu-jie-xi/</a>
+                    <a href="https://wenq-first.github.io/2020/04/07/san-da-ji-suan-bi-jiao/">https://wenq-first.github.io/2020/04/07/san-da-ji-suan-bi-jiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -433,6 +474,10 @@ function b(){
                             
                                 <a href="/tags/js/">
                                     <span class="chip bg-color">js</span>
+                                </a>
+                            
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -499,25 +544,87 @@ function b(){
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/03/vue-zhong-de-sheng-ming-zhou-qi/">
+                <a href="/2020/04/07/js-de-zi-fu-chuan-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue的生命周期">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="js中字符串操作相关方法">
                         
-                        <span class="card-title">vue的生命周期</span>
+                        <span class="card-title">js中字符串操作相关方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             首先，每个Vue实例在被创建之前都要经过一系列的初始化到销毁的过程,这个过程就是vue的生命周期。直接上一张官网的图: 多的我也不再赘述我就直接说说我对每个阶段的钩子函数的理解,全部的钩子函数我先列出就和我列出的排列顺序一样，这也其实是它
+                            JS字符串常用方法总结：
+toLowerCase(): 把字符串转为小写，返回新的字符串。
+var str=&quot;Hello World&quot;;
+var str1=str.toLowerCase();
+console.log(s
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%96%B9%E6%B3%95/" class="post-category">
+                                    方法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/05/vue-zu-jian-hua/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="vue的组件化开发">
+                        
+                        <span class="card-title">vue的组件化开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            vue的组件化
+组件化是Vue的精髓，Vue就是由一个一个的组件构成的,形成一颗庞大的组件树。Vue的组件化设计到的内容又非常多，因此在这里阐述一下个人对Vue的组件化的理解。
+
+组件的分类
+完全公共组件和业务逻辑完全不相关的组件
+和业务逻
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -537,66 +644,12 @@ function b(){
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
                     <a href="/tags/vue/">
                         <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/02/wai-bian-ju-ta-xian/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="外边距塌陷">
-                        
-                        <span class="card-title">外边距塌陷</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            造成外边距塌陷的原因
-根据规范，一个盒子如果使处于普通文档流中而且没有垂直方向补白和垂直方向边框的话，那么它的上边距会和它的文档流中的第一个子元素的上边距重叠。意思就是子元素的margin-top如果找不到父元素的border或者paddi
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E9%A1%B5%E9%9D%A2/" class="post-category">
-                                    页面
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/html/">
-                        <span class="chip bg-color">html</span>
-                    </a>
-                    
-                    <a href="/tags/css/">
-                        <span class="chip bg-color">css</span>
                     </a>
                     
                 </div>
