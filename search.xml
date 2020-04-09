@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>ES6笔记之函数</title>
+      <link href="/2020/04/09/es6-han-shu/"/>
+      <url>/2020/04/09/es6-han-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ES6和ES5的区别："><a href="#ES6和ES5的区别：" class="headerlink" title="ES6和ES5的区别："></a>ES6和ES5的区别：</h2><ol><li><strong>变量</strong>  </li><li><strong>函数</strong></li><li><strong>数组</strong></li><li><strong>字符串</strong></li><li><strong>面向对象</strong></li><li><strong>Promise</strong></li><li><strong>generator</strong></li><li><strong>模块化</strong></li></ol><hr><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>ES6：箭头函数</strong></p><ol><li><p><strong>如果只有一个参数，（）可以省</strong></p></li><li><p><strong>如果只有一条语句，{}可以省</strong></p></li><li><p><strong>函数的参数: 参数扩展/展开</strong></p></li><li><p><strong>默认参数</strong></p><pre><code>//通常函数的定义方法var fn1 = function(a, b) {  return a + b}//使用ES6箭头函数语法定义函数，将原函数的“function”关键字和函数名都删掉，并使用“=&gt;”连接参数列表和函数体。var fn1 = (a, b) =&gt; {  return a + b}// 无参var fn1 = () =&gt; {}// 单个参数  var fn2 = function(a) {}  var fn2 = a =&gt; {}// 多个参数var fn3 = function(a, b) {}var fn3 = (a, b) =&gt; {}</code></pre></li></ol><h2 id="参数扩展"><a href="#参数扩展" class="headerlink" title="参数扩展"></a>参数扩展</h2><ol><li><p><strong>收集剩余参数</strong></p><pre><code>function show(a,b,...args){console.log(args); //[8,1,2,5,3,4];}show(5,6,8,1,2,5,3,4);</code></pre><blockquote><p><strong>参数扩展必须写在最后一个参数的位置 …args</strong></p></blockquote></li><li><p><strong>扩展运算符… 展开数组</strong></p><pre><code>let arr1 = [1,2,3];let arr2 = [4,5,6];let arr3 = [...arr1,...arr2];console.log(arr3); //[1,2,3,4,5,6]</code></pre><blockquote><p><strong>展开后的效果，跟直接把数组内容写在这一样的</strong></p></blockquote></li><li><p><strong>默认参数</strong></p><pre><code>//ES6可以这样设置默认参数值function show(a,b = 5,c = 12){console.log(a,b,c); };show(99); //99,5,12show(5,2,1); // 5,2,1</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> 方法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> 语法 </tag>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ES6笔记之变量</title>
+      <link href="/2020/04/09/es6-bi-ji-zhi-bian-liang/"/>
+      <url>/2020/04/09/es6-bi-ji-zhi-bian-liang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ES6和ES5的区别："><a href="#ES6和ES5的区别：" class="headerlink" title="ES6和ES5的区别："></a>ES6和ES5的区别：</h2><ol><li><strong>变量</strong>  </li><li><strong>函数</strong></li><li><strong>数组</strong></li><li><strong>字符串</strong></li><li><strong>面向对象</strong></li><li><strong>Promise</strong></li><li><strong>generator</strong></li><li><strong>模块化</strong></li></ol><hr><h2 id="变量的改进"><a href="#变量的改进" class="headerlink" title="变量的改进"></a>变量的改进</h2><p><strong>var:</strong></p><ol><li><p><strong>可以重复使用 (可以反复定义一个变量而且不会报错)</strong></p></li><li><p><strong>无法限制修改 (也就是没有所谓的常量定义)</strong></p></li><li><p><strong>没有块级作用域 (块级作用域在C,java,c#等这类静待语言中是很重要的一个点)</strong></p><pre><code>// Demo1:用var定义的变量可以重复使用，所以就会出现以下的情况var a = 12;var a = 5;console.log(a); // 5// Demo2:用var定义的变量只有函数作用域和全局作用域并没有块级作用域，所以就会出现以下的情况if (ture) {var a = 5;}console.log(a); // 5// Demo3:由于var定义的变量没有块级作用域，所以在执行一些异步操作时会发生以下的情况for (var i = 0; i &lt; 5; i++) {setTimeout(function () {console.log(i); //打印5个5}, 500); }</code></pre></li></ol><hr><p><strong>ES6新增关键字：let:</strong></p><ol><li><p><strong>不可以重复使用 (不可以重复定义同一个变量)</strong></p></li><li><p><strong>变量–可以修改</strong></p></li><li><p><strong>有块级作用域</strong></p><pre><code>// Demo1:用let定义的变量不可以重复使用，所以就会出现以下的情况var a = 12;var a = 5;console.log(a); // 报错--a重复定义// Demo2:用let定义的变量有块级作用域，所以就会出现以下的情况if (ture) {var a = 5;}console.log(a); // 报错--a未定义// Demo3:由于let定义的变量有块级作用域，所以在执行一些异步操作时会发生以下的情况for (let i = 0; i &lt; 5; i++) {setTimeout(function () {console.log(i); //0 1 2 3 4}, 500); }</code></pre></li></ol><p><strong>ES6新增关键字：const:</strong></p><ol><li><strong>不可以重复使用 (不可以重复定义同一个变量)</strong></li><li><strong>常量–不可以修改</strong></li><li><strong>有块级作用域</strong><pre><code>const a = 5;a = 6;  //当尝试改变常量的值时会发生报错提示</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> 方法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> 语法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js中数组操作相关方法</title>
       <link href="/2020/04/07/js-zhong-shu-zu-fang-fa/"/>
       <url>/2020/04/07/js-zhong-shu-zu-fang-fa/</url>
