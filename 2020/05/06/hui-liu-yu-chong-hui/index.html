@@ -4,27 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6笔记之函数, html">
-    <meta name="description" content="ES6和ES5的区别：
-变量  
-函数
-数组
-字符串
-面向对象
-Promise
-generator
-模块化
-
-
-函数ES6：箭头函数
-
-如果只有一个参数，（）可以省
-
-如果只有一条语句，{}可以省
-
-函数的参数: 参数扩展/展开
-
-默认参数">
+    <meta name="keywords" content="回流与重绘, html">
+    <meta name="description" content="html 加载时发生了什么
+在页面加载时，浏览器把获取到的HTML代码解析成1个DOM树，DOM树里包含了所有HTML标签，包括display:none隐藏，还有用JS动态添加的元素等。浏览器把所有样式(用户定义的CSS和用户代理)解析成样">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +14,7 @@ generator
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ES6笔记之函数 | Smile</title>
+    <title>回流与重绘 | Smile</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -237,12 +219,12 @@ generator
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ES6笔记之函数</h1>
+                    <h1 class="description center-align post-title">回流与重绘</h1>
                 </div>
             </div>
         </div>
@@ -264,16 +246,8 @@ generator
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                <span class="chip bg-color">语法</span>
-                            </a>
-                        
-                            <a href="/tags/ES6/">
-                                <span class="chip bg-color">ES6</span>
+                            <a href="/tags/html/">
+                                <span class="chip bg-color">html</span>
                             </a>
                         
                     </div>
@@ -288,8 +262,8 @@ generator
                                 前端
                             </a>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%96%B9%E6%B3%95/" class="post-category">
-                                方法
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/html/" class="post-category">
+                                html
                             </a>
                         
                     </div>
@@ -301,7 +275,7 @@ generator
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-09
+                    2020-05-06
                 </div>
                 
 
@@ -310,14 +284,14 @@ generator
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    309
+                    949
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 				
@@ -333,72 +307,27 @@ generator
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ES6和ES5的区别："><a href="#ES6和ES5的区别：" class="headerlink" title="ES6和ES5的区别："></a>ES6和ES5的区别：</h2><ol>
-<li><strong>变量</strong>  </li>
-<li><strong>函数</strong></li>
-<li><strong>数组</strong></li>
-<li><strong>字符串</strong></li>
-<li><strong>面向对象</strong></li>
-<li><strong>Promise</strong></li>
-<li><strong>generator</strong></li>
-<li><strong>模块化</strong></li>
-</ol>
-<hr>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>ES6：箭头函数</strong></p>
-<ol>
-<li><p><strong>如果只有一个参数，（）可以省</strong></p>
-</li>
-<li><p><strong>如果只有一条语句，{}可以省</strong></p>
-</li>
-<li><p><strong>函数的参数: 参数扩展/展开</strong></p>
-</li>
-<li><p><strong>默认参数</strong></p>
-<pre><code>//通常函数的定义方法
-var fn1 = function(a, b) {
-  return a + b
-}
-//使用ES6箭头函数语法定义函数，将原函数的“function”关键字和函数名都删掉，并使用“=&gt;”连接参数列表和函数体。
-var fn1 = (a, b) =&gt; {
-  return a + b
-}
-
-// 无参
-var fn1 = () =&gt; {}
-
-// 单个参数
-  var fn2 = function(a) {}
-  var fn2 = a =&gt; {}
-
-// 多个参数
-var fn3 = function(a, b) {}
-var fn3 = (a, b) =&gt; {}</code></pre></li>
-</ol>
-<h2 id="参数扩展"><a href="#参数扩展" class="headerlink" title="参数扩展"></a>参数扩展</h2><ol>
-<li><p><strong>收集剩余参数</strong></p>
-<pre><code>function show(a,b,...args){
-console.log(args); //[8,1,2,5,3,4];
-}
-show(5,6,8,1,2,5,3,4);</code></pre><blockquote>
-<p><strong>参数扩展必须写在最后一个参数的位置 …args</strong></p>
+                <h2 id="html-加载时发生了什么"><a href="#html-加载时发生了什么" class="headerlink" title="html 加载时发生了什么"></a>html 加载时发生了什么</h2><blockquote>
+<p><strong>在页面加载时，浏览器把获取到的HTML代码解析成1个DOM树，DOM树里包含了所有HTML标签，包括display:none隐藏，还有用JS动态添加的元素等。浏览器把所有样式(用户定义的CSS和用户代理)解析成样式结构体DOM Tree 和样式结构体组合后构建render tree, render tree类似于DOM tree，但区别很大，因为render tree能识别样式，render tree中每个NODE都有自己的style，而且render tree不包含隐藏的节点(比如display:none的节点，还有head节点)，因为这些节点不会用于呈现，而且不会影响呈现的，所以就不会包含到 render tree中。我自己简单的理解就是DOM Tree和我们写的CSS结合在一起之后，渲染出了render tree。</strong></p>
 </blockquote>
-</li>
-<li><p><strong>扩展运算符… 展开数组</strong></p>
-<pre><code>let arr1 = [1,2,3];
-let arr2 = [4,5,6];
-
-let arr3 = [...arr1,...arr2];
-console.log(arr3); //[1,2,3,4,5,6]</code></pre><blockquote>
-<p><strong>展开后的效果，跟直接把数组内容写在这一样的</strong></p>
+<h2 id="什么是回流"><a href="#什么是回流" class="headerlink" title="什么是回流"></a>什么是回流</h2><blockquote>
+<p><strong>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候，这时候是一定会发生回流的，因为要构建render tree。在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程成为重绘。</strong></p>
 </blockquote>
-</li>
-<li><p><strong>默认参数</strong></p>
-<pre><code>//ES6可以这样设置默认参数值
-function show(a,b = 5,c = 12){
-console.log(a,b,c); 
-};
-show(99); //99,5,12
-show(5,2,1); // 5,2,1</code></pre></li>
-</ol>
+<h2 id="什么是重绘"><a href="#什么是重绘" class="headerlink" title="什么是重绘"></a>什么是重绘</h2><blockquote>
+<p><strong>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color,color之类的,就称为重绘。</strong></p>
+</blockquote>
+<h2 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h2><blockquote>
+<p><strong>他们的区别很大：</strong><br> <strong>回流必将引起重绘，而重绘不一定会引起回流。比如：只有颜色改变的时候就只会发生重绘而不会引起回流.当页面布局和几何属性改变时就需要回流;比如：添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变</strong></p>
+</blockquote>
+<h2 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h2><blockquote>
+<p><strong>我们能得知回流比重绘的代价要更高，回流的花销跟render tree有多少节点需要重新构建有关系因为这些机制的存在，所以浏览器会帮助我们优化这些操作，浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</strong></p>
+</blockquote>
+<h2 id="但是靠浏览器不如靠自己，我们可以改变一些写法减少回流和重绘"><a href="#但是靠浏览器不如靠自己，我们可以改变一些写法减少回流和重绘" class="headerlink" title="但是靠浏览器不如靠自己，我们可以改变一些写法减少回流和重绘"></a>但是靠浏览器不如靠自己，我们可以改变一些写法减少回流和重绘</h2><blockquote>
+<p><strong>比如改变样式的时候，不去改变他们每个的样式，而是直接改变className 就要用到cssText 但是要注意有一个问题，会把原有的cssText清掉，比如原来的style中有’display:none;’，那么执行完上面的JS后，display就被删掉了。为了解决这个问题，可以采用cssText累加的方法，但是IE不支持累加，前面添一个分号可以解决。还有添加节点的时候比如要添加一个div里面有三个子元素p，如果添加div再在里面添加三次p，这样就触发很多次回流和重绘，我们可以用cloneNode(true or false) 来，一次性把要添加的都克隆好再appened就好了</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>以上纯属个人理解，有更好的建议可以下面评论或者给我留言，我会努力的改进的哟!</strong></p>
+</blockquote>
 
             </div>
             <hr/>
@@ -424,7 +353,7 @@ show(5,2,1); // 5,2,1</code></pre></li>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wenq-first.github.io/2020/04/09/es6-han-shu/">https://wenq-first.github.io/2020/04/09/es6-han-shu/</a>
+                    <a href="https://wenq-first.github.io/2020/05/06/hui-liu-yu-chong-hui/">https://wenq-first.github.io/2020/05/06/hui-liu-yu-chong-hui/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,16 +391,8 @@ show(5,2,1); // 5,2,1</code></pre></li>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                    <span class="chip bg-color">语法</span>
-                                </a>
-                            
-                                <a href="/tags/ES6/">
-                                    <span class="chip bg-color">ES6</span>
+                                <a href="/tags/html/">
+                                    <span class="chip bg-color">html</span>
                                 </a>
                             
                         </div>
@@ -534,9 +455,65 @@ show(5,2,1); // 5,2,1</code></pre></li>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/05/06/hui-liu-yu-chong-hui/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="回流与重绘">
+                        
+                        <span class="card-title">回流与重绘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            html 加载时发生了什么
+在页面加载时，浏览器把获取到的HTML代码解析成1个DOM树，DOM树里包含了所有HTML标签，包括display:none隐藏，还有用JS动态添加的元素等。浏览器把所有样式(用户定义的CSS和用户代理)解析成样
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/html/" class="post-category">
+                                    html
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/09/es6-bi-ji-zhi-bian-liang/">
                     <div class="card-image">
@@ -571,9 +548,9 @@ generator
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -599,63 +576,6 @@ generator
                     
                     <a href="/tags/%E8%AF%AD%E6%B3%95/">
                         <span class="chip bg-color">语法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/07/js-zhong-shu-zu-fang-fa/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="js中数组操作相关方法">
-                        
-                        <span class="card-title">js中数组操作相关方法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            js常见数组方法：
-join()就是把数组转换成字符串，然后给他规定个连接字符，默认不传参的是逗号,返回一个字符串
-var arr = [1,2,3];
-console.log(arr.join()); 　　　　// 1,2,3
-conso
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%96%B9%E6%B3%95/" class="post-category">
-                                    方法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/js/">
-                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
