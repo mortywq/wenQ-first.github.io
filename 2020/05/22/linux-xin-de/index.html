@@ -1,0 +1,1046 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux心得, html">
+    <meta name="description" content="1、环境java与maven搭建1)、Ubuntu设置JAVA和maven环境变量命令安装jdk
+//oraclejdk
+sudo apt-get install oracle-java8-installer  
+//openjdk
+sud">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Linux心得 | Smile</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Smile</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas  fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Smile</div>
+        <div class="logo-desc">
+            
+            学习||前端||html||css||js||vue
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas  fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux心得</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                                <span class="chip bg-color">语法</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
+                            </a>
+                        
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="1、环境java与maven搭建"><a href="#1、环境java与maven搭建" class="headerlink" title="1、环境java与maven搭建"></a>1、环境java与maven搭建</h3><h4 id="1-、Ubuntu设置JAVA和maven环境变量"><a href="#1-、Ubuntu设置JAVA和maven环境变量" class="headerlink" title="1)、Ubuntu设置JAVA和maven环境变量"></a>1)、Ubuntu设置JAVA和maven环境变量</h4><p>命令安装jdk</p>
+<p>//oraclejdk</p>
+<p>sudo apt-get install oracle-java8-installer  </p>
+<p>//openjdk</p>
+<p>sudo apt-get install openjdk-8-jdk</p>
+<p>yum install java-1.8.0-openjdk* -y</p>
+<blockquote>
+<p>sudo vim ~/.bashrc               ##bash下  当前用户</p>
+<p>sudo vim /etc/profile      ##全局</p>
+<p>sudo vim ~/.zshrc              ##zsh下</p>
+</blockquote>
+<pre class=" language-shell"><code class="language-shell"># jdk
+
+export JAVA_HOME=/usr/local/jdk1.8.0_251
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+
+# maven
+
+M2_HOME=/usr/local/apache-maven-3.6.3-bin/apache-maven-3.6.3
+export MAVEN_OPTS="-Xms256m -Xmx512m"
+export PATH=$M2_HOME/bin:$PATH
+
+</code></pre>
+<p>使新配置生效</p>
+<pre class=" language-shell"><code class="language-shell">source ~/.zshrc 
+
+source ~/.basshrc 
+
+source  /etc/profile</code></pre>
+<h4 id="2-、Maven设置完环境变量报错"><a href="#2-、Maven设置完环境变量报错" class="headerlink" title="2)、Maven设置完环境变量报错"></a>2)、Maven设置完环境变量报错</h4><p>问题:</p>
+<p>测试maven环境变量是否配置好出现问题.</p>
+<p>报错:</p>
+<pre class=" language-shell"><code class="language-shell">Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: /usr/local/apache-maven-3.6.3-bin/apache-maven-3.6.3
+Java version: 1.8.0_251, vendor: Oracle Corporation, runtime: /usr/local/jdk1.8.0_251/jre
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "linux", version: "5.3.0-51-generic", arch: "amd64", family: "unix"</code></pre>
+<p>原因:</p>
+<p>maven依赖JAVA_HOME,而它现在找不到JAVA_HOME配置.</p>
+<p>解决:</p>
+<p>检查本地环境变量是否设置JAVA_HOME,没设置则一定要添加</p>
+<p><del>/.zshrc 和</del>/.bashrc检查一下.再看看/etc/profile文件.</p>
+<p>仔细核查路径是否正确,如错误修改之后</p>
+<p>一定要记得歇source命令.对应修改文件</p>
+<pre class=" language-shell"><code class="language-shell">source ~/.zshrc 
+
+source ~/.basshrc 
+
+source  /etc/profile
+
+</code></pre>
+<h3 id="2、Ubuntu18-网速显示-插件-显示在状态栏"><a href="#2、Ubuntu18-网速显示-插件-显示在状态栏" class="headerlink" title="2、Ubuntu18 网速显示 插件 显示在状态栏"></a>2、Ubuntu18 网速显示 插件 显示在状态栏</h3><p>需求</p>
+<p>在状态栏显示网速，以及内存，CPU。</p>
+<p>安装</p>
+<p>依次在终端执行下面三条命令。</p>
+<pre><code>sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor</code></pre><p>上面的那条命令需要按<strong>回车</strong>继续</p>
+<pre><code>sudo apt-get update
+sudo apt-get install -y indicator-sysmonitor</code></pre><p>启动</p>
+<p>在应用程序中搜索sys，就像下面这样</p>
+<p><a href="https://www.tuziang.com/usr/uploads/2019/05/4185065958.png" target="_blank" rel="noopener"><img src="https://www.tuziang.com/usr/uploads/2019/05/4185065958.png" alt="Ubuntu18 网速显示 插件 显示在状态栏 "></a></p>
+<p>点击“System Monitor Indicator” 就启动了。</p>
+<p>配置</p>
+<p>如果你需要配置成你想要的样子，点击”Preferences.“</p>
+<p><a href="https://www.tuziang.com/usr/uploads/2019/05/1207038625.png" target="_blank" rel="noopener"><img src="https://www.tuziang.com/usr/uploads/2019/05/1207038625.png" alt="Ubuntu18 网速显示 插件 显示在状态栏 "></a></p>
+<p>然后就可以配置了。</p>
+<p><a href="https://www.tuziang.com/usr/uploads/2019/05/1580404008.png" target="_blank" rel="noopener"><img src="https://www.tuziang.com/usr/uploads/2019/05/1580404008.png" alt="Ubuntu18 网速显示 插件 显示在状态栏 "></a></p>
+<p>比如我就加了个显示网速的功能：</p>
+<pre><code>cpu: {cpu} mem: {mem} net:{net}</code></pre><p>如果需要它每次启动电脑都自动运行，需要勾选下面的选项：</p>
+<p><a href="https://www.tuziang.com/usr/uploads/2019/05/122388909.png" target="_blank" rel="noopener"><img src="https://www.tuziang.com/usr/uploads/2019/05/122388909.png" alt="Ubuntu18 网速显示 插件 显示在状态栏 "></a></p>
+<p>最后点击Save即可保存生效。</p>
+<h3 id="3、展示自己系统信息以及配置"><a href="#3、展示自己系统信息以及配置" class="headerlink" title="3、展示自己系统信息以及配置"></a>3、展示自己系统信息以及配置</h3><p>sudo apt-get install screenfetch</p>
+<p>screenfetch</p>
+<p><img src="/home/mi2/.config/Typora/typora-user-images/image-20200525093845726.png" alt="image-20200525093845726"></p>
+<h3 id="4、ubuntu-使用dosbox和masm"><a href="#4、ubuntu-使用dosbox和masm" class="headerlink" title="4、ubuntu 使用dosbox和masm"></a>4、ubuntu 使用dosbox和masm</h3><h5 id="1-软件下载："><a href="#1-软件下载：" class="headerlink" title="1. 软件下载："></a>1. 软件下载：</h5><p>dosbox安装：</p>
+<pre class=" language-shell"><code class="language-shell">sudo apt-get install dosbox</code></pre>
+<h5 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2. 环境搭建"></a>2. 环境搭建</h5><p>1.创建文件夹MASM，将masm.exe, link.exe, debug.exe 放入文件夹中(本人百度网盘有)</p>
+<pre class=" language-shell"><code class="language-shell">mkdir ~/MASM
+#再将masm.exe, link.exe, debug.exe移入进去</code></pre>
+<p>2.dosbox环境配置</p>
+<pre class=" language-shell"><code class="language-shell">#首先进入配置文件(类比windows path)
+sudo vim ~.dosbox/dosbox-0.74.conf
+#修改配置文件(类比添加环境变量) 底部增加以下配置
+mount c ~/MASM
+path=%path%;c:\masm
+c: </code></pre>
+<blockquote>
+<p>mount c ~\MASM, 是相当于用c: 来表示 ~\ms-dos 路径，执行该命令后输入 c:，回车进入 ~\ms-dos 路径。<br> path=%path%;\masm，相当于将目录MASM路径加入了path中，当执行masm,link,debug命令时不用进入目录masm。不添加该路径必须进入MASM目录才能够进行MASM,link,debug操作。<br> <strong>这里注意一下，执行文件的话必须要进入文件的目录下。博主为了偷懒，试过很多添加环境变量的方法，都没有成功，最终还是得进入文件所在目录。读者有解决方法希望能留言区交流。</strong></p>
+</blockquote>
+<h5 id="3-文件编写"><a href="#3-文件编写" class="headerlink" title="3. 文件编写"></a>3. 文件编写</h5><blockquote>
+<p>编写MASM文件，保存在MASM目录下。为什么添加到MASM目录下？因为asm目录已经添加到了path中，这样子方便对文件的直接执行，否则编译时必须要进入MASM文件所在的路径才能进行masm,link,debug操作，否则会提示找不到输入文件的提示。有更好的办法是将新加一个文件路径也添加到dosbox的path中，期待勤劳的你们去自己实现。</p>
+</blockquote>
+<h3 id="5、Ubuntu下载文件解压打开之后乱码问题"><a href="#5、Ubuntu下载文件解压打开之后乱码问题" class="headerlink" title="5、Ubuntu下载文件解压打开之后乱码问题"></a>5、Ubuntu下载文件解压打开之后乱码问题</h3><h4 id="1-、convmv"><a href="#1-、convmv" class="headerlink" title="1) 、convmv"></a>1) 、convmv</h4><p>convmv就是更改文件名编码方式的一个工具。比如</p>
+<p>sudo convmv -f gbk -t utf-8 -r –notest /home</p>
+<p>就是将/home目录下原来文件名是gbk编码方式的全部改为utf-8格式的。这里 -f 后面为原来的编码方式，-t 后面是要更改为的编码方式， -r 表示递归形式处理这个目录下面的所有文件， –notest 表示马上执行，而不是仅仅测试而已。另外这命令好像要root才能执行，因此要加上 sudo。</p>
+<h4 id="2-、iconv"><a href="#2-、iconv" class="headerlink" title="2)、iconv"></a>2)、iconv</h4><p>iconv是更改文件编码方式的一个工具：</p>
+<p>sudo iconv -f gbk -t utf-8 -o outfile infile</p>
+<p>-f为原来的编码方式，-t 为输出文件的编码方式， -o表示输出文件名，这利用outfile表示，最后跟上要更改编码方式的文件名sourcefile 。</p>
+<p>通过这两个工具，中文文件乱码的问题终于解决。</p>
+<pre><code>unzip -O GBK &#39;****.zip&#39;  //unzip 的改编编码，Ubuntu默认utf8，而Windows默认GBK</code></pre><h3 id="6、centos安装Nginx"><a href="#6、centos安装Nginx" class="headerlink" title="6、centos安装Nginx"></a>6、centos安装Nginx</h3><h5 id="步骤-1-添加-yum-源"><a href="#步骤-1-添加-yum-源" class="headerlink" title="步骤 1: 添加 yum 源"></a>步骤 1: 添加 yum 源</h5><p>Nginx 不在默认的 yum 源中，可以使用 epel 或者官网的 yum 源，本例使用官网的 yum 源。</p>
+<pre><code>$ sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>安装完 yum 源之后，可以查看一下。</p>
+<pre><code>$ sudo yum repolist
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+repo id                          repo name                          status
+base/7/x86_64                    CentOS-7 - Base                    9,911
+extras/7/x86_64                  CentOS-7 - Extras                    368
+nginx/x86_64                     nginx repo                           108
+updates/7/x86_64                 CentOS-7 - Updates                 1,041
+repolist: 11,428</code></pre><p>可以发现 <code>nginx repo</code> 已经安装到本机了。</p>
+<h5 id="步骤-2-安装"><a href="#步骤-2-安装" class="headerlink" title="步骤 2: 安装"></a>步骤 2: 安装</h5><p>yum 安装 Nginx，非常简单，一条命令。</p>
+<pre><code>$ sudo yum install nginx</code></pre><h5 id="步骤-3-配置-Nginx-服务"><a href="#步骤-3-配置-Nginx-服务" class="headerlink" title="步骤 3: 配置 Nginx 服务"></a>步骤 3: 配置 Nginx 服务</h5><p>设置开机启动</p>
+<pre><code>$ sudo systemctl enable nginx</code></pre><p>启动服务</p>
+<pre><code>$ sudo systemctl start nginx</code></pre><p>停止服务</p>
+<pre><code>$ sudo systemctl restart nginx</code></pre><p>重新加载，因为一般重新配置之后，不希望重启服务，这时可以使用重新加载。</p>
+<pre><code>$ sudo systemctl reload nginx</code></pre><h5 id="步骤-4-打开防火墙端口"><a href="#步骤-4-打开防火墙端口" class="headerlink" title="步骤 4: 打开防火墙端口"></a>步骤 4: 打开防火墙端口</h5><p>默认 CentOS7 使用的防火墙 firewalld 是关闭 http 服务的（打开 80 端口）。</p>
+<pre><code>$ sudo firewall-cmd --zone=public --permanent --add-service=http
+success
+$ sudo firewall-cmd --reload
+success</code></pre><p>打开之后，可以查看一下防火墙打开的所有的服务</p>
+<pre><code>$ sudo firewall-cmd --list-service
+ssh dhcpv6-client http</code></pre><p>步骤5：Nginx默认目录<br>输入命令：</p>
+<pre><code>whereis nginx1</code></pre><p>即可看到类似于如下的内容：</p>
+<pre><code>nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx1</code></pre><blockquote>
+<p>以下是Nginx的默认路径：</p>
+<ul>
+<li><p>Nginx配置路径：/etc/nginx/</p>
+</li>
+<li><p>PID目录：/var/run/nginx.pid</p>
+</li>
+<li><p>错误日志：/var/log/nginx/error.log</p>
+</li>
+<li><p>访问日志：/var/log/nginx/access.log</p>
+</li>
+<li><p>默认站点目录：/usr/share/nginx/html</p>
+</li>
+</ul>
+</blockquote>
+<p>事实上，只需知道Nginx配置路径，其他路径均可在<code>/etc/nginx/nginx.conf</code> 以及<code>/etc/nginx/conf.d/default.conf</code> 中查询到。</p>
+<h3 id="7、nginx详细配置信息和常用命令"><a href="#7、nginx详细配置信息和常用命令" class="headerlink" title="7、nginx详细配置信息和常用命令"></a>7、nginx详细配置信息和常用命令</h3><p>yum安装配置文件在/ect/nginx，现在把两个证书文件复制过来，待会直接配置使用就行了。</p>
+<p>nginx的配置文件是nginx.conf，里面的配置内容有以下，为了容易明白，都加上了注释。</p>
+<pre class=" language-shell"><code class="language-shell"># 运行用户，默认即是nginx，可以不进行设置
+user  nginx;
+#Nginx进程，一般设置为和CPU核数一样
+worker_processes  1;
+
+#错误日志存放目录
+error_log  /var/log/nginx/error.log warn;
+#进程pid存放位置
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024; # 单个后台进程的最大并发数
+}
+
+http {
+    include       /etc/nginx/mime.types; #文件扩展名与类型映射表
+    default_type  application/octet-stream; #默认文件类型
+    #设置日志模式
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main; #nginx访问日志存放位置
+
+    sendfile        on; #开启高效传输模式
+    #tcp_nopush     on; #减少网络报文段的数量
+
+    keepalive_timeout  65; #保持连接的时间，也叫超时时间
+
+    #gzip  on; #开启gzip压缩
+
+    include /etc/nginx/conf.d/*.conf; #包含的子配置项位置和文件
+}
+</code></pre>
+<h5 id="1-、打开里面的default-conf"><a href="#1-、打开里面的default-conf" class="headerlink" title="1)、打开里面的default.conf"></a>1)、打开里面的default.conf</h5><pre class=" language-shell"><code class="language-shell">#设定虚拟主机配置
+server {
+  #侦听443端口，这个是ssl访问端口
+  listen    443 ssl;
+  #定义使用 访问域名
+  server_name www.mi-2.top;
+  #定义服务器的默认网站根目录位置
+  root /web/www/website/dist;  
+
+  #设定本虚拟主机的访问日志
+  access_log  logs/nginx.access.log  main;
+
+  # 这些都是腾讯云推荐的配置，直接拿来用就行了，只是修改证书的路径，注意这些路径是相对于/etc/nginx/nginx.conf文件位置
+  # ssl on; 改成在listen 443 +一个ssl  如: listen 443 ssl;
+  ssl_certificate 1_XXX.com_bundle.crt;
+  ssl_certificate_key 2_XXX.com.key;
+  ssl_session_timeout 5m;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置
+  ssl_prefer_server_ciphers on;
+
+  #默认请求
+  location / {     
+  #root /web/www/website/dist;      
+      #定义首页索引文件的名称
+     # index index.html;
+     proxy_pass http://127.0.0.1:8080;
+  }
+
+  #静态文件，nginx自己处理
+  location ~ ^/(images|javascript|js|css|flash|media|static)/ {
+      #过期30天，静态文件不怎么更新，过期可以设大一点，
+      #如果频繁更新，则可以设置得小一点。
+      expires 30d;
+  }
+
+  #禁止访问 .htxxx 文件
+  #    location ~ /.ht {
+  #    deny all;
+  #}
+
+}
+server
+{
+  # 80端口是http正常访问的接口
+  listen 80;
+  server_name XXX.com;
+  # 在这里，我做了https全加密处理，在访问http的时候自动跳转到https
+  rewrite ^(.*) https://$host$1 permanent;
+}</code></pre>
+<h5 id="2-、nginx日常操作命令"><a href="#2-、nginx日常操作命令" class="headerlink" title="2)、nginx日常操作命令"></a>2)、nginx日常操作命令</h5><blockquote>
+<ul>
+<li>nginx -t 测试配置文件</li>
+<li>nginx -s reload 修改配置后重载生效</li>
+<li>nginx -s reopen 重新打开日志文件</li>
+<li>nginx -s stop 快速停止</li>
+<li>nginx -s quit</li>
+<li>查看nginx进程 ps -ef | grep nginx</li>
+</ul>
+</blockquote>
+<h3 id="8-、nohoup部署springboot项目在服务器后台运行"><a href="#8-、nohoup部署springboot项目在服务器后台运行" class="headerlink" title="8)、nohoup部署springboot项目在服务器后台运行"></a>8)、nohoup部署springboot项目在服务器后台运行</h3><blockquote>
+<p>Linux 运行jar包命令如下：</p>
+<p>方式一：</p>
+<p>java -jar XXX.jar 特点：当前ssh窗口被锁定，可按CTRL + C打断程序运行，或直接关闭窗口，程序退出</p>
+<p>那如何让窗口不锁定？</p>
+<p>方式二</p>
+<p>java -jar XXX.jar &amp; &amp;代表在后台运行。</p>
+<p>特定：当前ssh窗口不被锁定，但是当窗口关闭时，程序中止运行。</p>
+<p>继续改进，如何让窗口关闭时，程序仍然运行？</p>
+<p>方式三</p>
+<p>nohup java -jar XXX.jar &amp; nohup 意思是不挂断运行命令,当账户退出或终端关闭时,程序仍然运行</p>
+<p>当用 nohup 命令执行作业时，缺省情况下该作业的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。</p>
+<p>方式四</p>
+<p>nohup java -jar XXX.jar &gt;temp.txt &amp; 解释下 &gt;temp.txt</p>
+<p>command &gt;out.file  </p>
+<p>command &gt;out.file是将command的输出重定向到out.file文件，即输出内容不打印到屏幕上，而是输出到out.file文件中。</p>
+<p>可通过jobs命令查看后台运行任务</p>
+<p>jobs 那么就会列出所有后台执行的作业，并且每个作业前面都有个编号。 如果想将某个作业调回前台控制，只需要 fg + 编号即可。</p>
+</blockquote>
+<pre class=" language-shell"><code class="language-shell">nohup 用途：LINUX命令用法，不挂断地运行命令。   
+
+语法：nohup Command [ Arg ... ] [ & ]   
+
+描述：nohup 命令运行由 Command 参数和任何相关的 Arg 参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 & （ 表示“and”的符号）到命令的尾部。   
+
+如果不将 nohup 命令的输出重定向，输出将附加到当前目录的 nohup.out 文件中。
+如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。
+如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。
+如果标准错误是一个终端，那么把指定的命令写给标准错误的所有输出作为标准输出重定向到相同的文件描述符。   
+
+退出状态：该命令返回下列出口值：
+126 可以查找但不能调用 Command 参数指定的命令。
+127 nohup 命令发生错误或不能查找由 Command 参数指定的命令。
+否则，nohup 命令的退出状态是 Command 参数指定命令的退出状态。
+
+nohup命令及其输出文件   
+
+nohup命令：如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用nohup命令。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。
+
+该命令的一般形式为：nohup command &   使用nohup命令提交作业   
+
+如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：   
+nohup command > myout.file 2>&1 &   
+在上面的例子中，输出被重定向到myout.file文件中。  
+
+nohup java -jar zdzjar.jar > nohup.out 2>&1 &
+//关闭进程
+ps -aux | grep java
+kill -s 9 xxx
+xxx代表上一步查出的进程ID
+
+可以直接用一句话执行
+ps aux |grep zdzjar.jar |grep -v grep |awk '{print $2}' |xargs kill -9
+或者
+ps -ef|grep -v grep|grep zdzjar.jar | grep java |awk '{print "kill -9 "$2}'|sh</code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wenq-first.github.io" rel="external nofollow noreferrer">Smile</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wenq-first.github.io/2020/05/22/linux-xin-de/">https://wenq-first.github.io/2020/05/22/linux-xin-de/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://wenq-first.github.io" target="_blank">Smile</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                                    <span class="chip bg-color">语法</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80OTQxMi8yNTkwNA==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/24/typora-chang-yong-kuai-jie-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Typora常用快捷键">
+                        
+                        <span class="card-title">Typora常用快捷键</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            常用快捷键1、自动完成在macOS上，您可以按Esc键打开内联数学预览、自动完成表情符号等功能。
+2、文件
+
+
+功能
+Windows / Linux
+macOS
+
+
+
+新建
+Ctrl + N
+Command + N
+
+
+新窗口
+Ctrl +
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
+                                </a>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                        <span class="chip bg-color">语法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/06/hui-liu-yu-chong-hui/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="回流与重绘">
+                        
+                        <span class="card-title">回流与重绘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            html 加载时发生了什么
+在页面加载时，浏览器把获取到的HTML代码解析成1个DOM树，DOM树里包含了所有HTML标签，包括display:none隐藏，还有用JS动态添加的元素等。浏览器把所有样式(用户定义的CSS和用户代理)解析成样
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/html/" class="post-category">
+                                    html
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align"
+        style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://wenq-first.github.io" target="_blank">Smlie</a>
+            |&nbsp;&nbsp;<a href="https://hexo.io/" target="_blank"></a>
+            |&nbsp;&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank"></a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+<a href="https://github.com/wenQ-first" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top"
+    data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+<!-- 
+<a href="1259584044@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+ -->
+
+<!--  -->
+<!-- 
+ -->
+
+
+<a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1259584044" class="tooltipped" target="_blank"
+    data-tooltip="QQ联系我: 1259584044" data-position="top" data-delay="50">
+    <i class="fab fa-qq"></i>
+</a>
+
+
+
+
+
+
+<!--  --></div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
